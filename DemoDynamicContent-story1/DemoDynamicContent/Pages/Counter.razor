@@ -1,0 +1,25 @@
+﻿@page "/counter"
+@inject ControlService _controlService
+
+@foreach (var control in _controlService.GetControls())
+{
+    @if (control.IsRequired)
+    {
+        <div>@(control.Label)*</div>
+    }
+    else
+    {
+        <div>@control.Label</div>
+    }
+
+    @switch (control.Type)
+    {
+        case "TextEdit":
+            <input required="@control.IsRequired">
+            break;
+
+        case "DateEdit":
+            <input required="@control.IsRequired" type="date">
+            break;
+    }
+}

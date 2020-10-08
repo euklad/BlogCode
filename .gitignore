@@ -3,3 +3,9 @@
 ################################################################################
 
 *.dll
+*.exe
+*.pdb
+/DemoDynamicContent-story1/DemoDynamicContent/bin/Debug/netcoreapp3.1
+/DemoDynamicContent-story1/DemoDynamicContent/obj/Debug/netcoreapp3.1/RazorDeclaration
+/DemoDynamicContent-story1/DemoDynamicContent/obj
+*.suo
