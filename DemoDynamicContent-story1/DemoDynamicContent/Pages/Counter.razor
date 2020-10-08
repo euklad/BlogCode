@@ -1,7 +1,7 @@
 ﻿@page "/counter"
 @inject ControlService _controlService
 
-@foreach (var control in _controlService.GetControls())
+@foreach (var control in ControlList)
 {
     @if (control.IsRequired)
     {
@@ -15,11 +15,42 @@
     @switch (control.Type)
     {
         case "TextEdit":
-            <input required="@control.IsRequired">
+            <input @bind-value="@Values[control.Label]" required="@control.IsRequired" />
             break;
 
         case "DateEdit":
-            <input required="@control.IsRequired" type="date">
+            <input type="date" value="@Values[control.Label]" @onchange="@(a => ValueChanged(a, control.Label))" required="@control.IsRequired" />
             break;
     }
 }
+
+<br/>
+<button @onclick="OnClick">Submit</button>
+
+@code
+{
+    private List<ControlDetails> ControlList;
+    private Dictionary<string, string> Values;
+
+    protected override async Task OnInitializedAsync()
+    {
+        ControlList = _controlService.GetControls();
+        Values = ControlList.ToDictionary(c => c.Label, c => "");
+    }
+
+    void ValueChanged(ChangeEventArgs a, string label)
+    {
+        Values[label] = a.Value.ToString();
+    }
+
+    string GetValue(string label)
+    {
+        return Values[label];
+    }
+
+    private void OnClick(MouseEventArgs e)
+    {
+        // send your Values
+    }
+}
+
