@@ -1,0 +1,15 @@
+﻿@namespace DemoRazorClassLibrary
+
+<div class="my-component">
+    This Blazor component is defined in the <strong>DemoRazorClassLibrary</strong> package.
+    <input @bind-value="@Values[Control.Label]" required="@Control.IsRequired" />
+</div>
+
+@code 
+{
+    [Parameter]
+    public DemoDynamicContent.ControlDetails Control { get; set; }
+
+    [Parameter]
+    public Dictionary<string, string> Values { get; set; }
+}

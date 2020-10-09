@@ -9,3 +9,11 @@
 /DemoDynamicContent-story1/DemoDynamicContent/obj/Debug/netcoreapp3.1/RazorDeclaration
 /DemoDynamicContent-story1/DemoDynamicContent/obj
 *.suo
+/DemoDynamicContent-story2/DemoDynamicContent/bin/Debug/netcoreapp3.1
+/DemoDynamicContent-story2/DemoDynamicContent/obj
+/DemoDynamicContent-story2/DemoRazorClassLibrary/bin/Debug/netstandard2.1
+/DemoDynamicContent-story2/DemoRazorClassLibrary/obj
+/DemoDynamicContent-story2/DemoShared/bin/Debug/netstandard2.1
+/DemoDynamicContent-story2/DemoShared/obj
+/DemoDynamicContent-story1/.vs/DemoDynamicContent/DesignTimeBuild/.dtbcache.v2
+/DemoDynamicContent-story2/.vs

@@ -1,0 +1,77 @@
+﻿@page "/counter"
+@inject ControlService _controlService
+@inject DemoShared.IComponentTypeResolver _componentResolverService
+
+@foreach (var control in ControlList)
+{
+    @if (control.IsRequired)
+    {
+        <div>@(control.Label)*</div>
+    }
+    else
+    {
+        <div>@control.Label</div>
+    }
+
+    @switch (control.Type)
+    {
+        case "TextEdit":
+            <input @bind-value="@Values[control.Label]" required="@control.IsRequired" />
+            break;
+
+        case "DateEdit":
+            <input type="date" value="@Values[control.Label]" @onchange="@(a => ValueChanged(a, control.Label))" required="@control.IsRequired" />
+            break;
+
+        default:
+            var customComponent = GetCustomComponent(control.Type);
+            RenderFragment renderFragment = (builder) =>
+            {
+                builder.OpenComponent(0, customComponent);
+                builder.AddAttribute(0, "Control", control);
+                builder.AddAttribute(0, "Values", Values);
+                builder.CloseComponent();
+            };
+            <div>
+                @renderFragment
+            </div>
+            break;
+    }
+}
+
+<br />
+<button @onclick="OnClick">Submit</button>
+
+@code
+{
+    private List<ControlDetails> ControlList;
+    private Dictionary<string, string> Values;
+
+    protected override async Task OnInitializedAsync()
+    {
+        ControlList = _controlService.GetControls();
+        Values = ControlList.ToDictionary(c => c.Label, c => "");
+    }
+
+    void ValueChanged(ChangeEventArgs a, string label)
+    {
+        Values[label] = a.Value.ToString();
+    }
+
+    string GetValue(string label)
+    {
+        return Values[label];
+    }
+
+    private void OnClick(MouseEventArgs e)
+    {
+        // send your Values
+    }
+
+    private Type GetCustomComponent(string name)
+    {
+        return _componentResolverService.GetComponentTypeByName(name);
+    }
+
+}
+
