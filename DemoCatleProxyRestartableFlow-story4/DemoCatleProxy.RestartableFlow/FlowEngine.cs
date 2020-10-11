@@ -1,26 +1,11 @@
 ﻿using Castle.DynamicProxy;
 using System;
 using System.Collections.Generic;
-using System.Reflection;
 using System.Text;
 using System.Xml.Schema;
 
 namespace DemoCatleProxy.RestartableFlow
 {
-    public class FlowData
-    {
-        public bool IsFinished { get; set; }
-        public List<string> CallHistory { get; set; } = new List<string>();
-        public List<object> ModelHistory { get; set; } = new List<object>();
-        public bool IsStopped { get; set; }
-        public Exception LastException { get; set; }
-    }
-
-    public interface IFlowEngine
-    {
-
-    }
-
     public class FlowEngine : IFlowEngine, IInterceptor
     {
         private readonly IProxyGenerator _proxyGenerator;
@@ -97,45 +82,5 @@ namespace DemoCatleProxy.RestartableFlow
                 _flow.SetModel(_flowData.ModelHistory[index]);
             }
         }
-
-        #region hook
-        public class FreezableProxyGenerationHook : IProxyGenerationHook
-        {
-            private IFlow _flow;
-
-            public FreezableProxyGenerationHook(IFlow flow)
-            {
-                _flow = flow;
-            }
-
-            public override int GetHashCode()
-            {
-                return _flow.GetHashCode();
-            }
-
-            public override bool Equals(object obj)
-            {
-                return _flow == (obj as FreezableProxyGenerationHook)._flow;
-            }
-
-            public bool ShouldInterceptMethod(Type type, MethodInfo memberInfo)
-            {
-                return memberInfo.Name != "Execute" && memberInfo.Name != "SetModel";
-            }
-
-            public void NonVirtualMemberNotification(Type type, MemberInfo memberInfo)
-            {
-            }
-
-            public void MethodsInspected()
-            {
-            }
-
-            public void NonProxyableMemberNotification(Type type, MemberInfo memberInfo)
-            {
-
-            }
-        }
-        #endregion
     }
 }
