@@ -18,7 +18,7 @@ namespace DemoCatleProxy.RestartableFlow.Tests
             int approveTimes = 0;
 
             demoService.Setup(s => s.LoadReceivedMessage()).Returns("Important message 1");
-            demoService.Setup(s => s.GetSignature(It.IsAny<string>())).Returns("0xAABBEF");
+            demoService.Setup(s => s.GetSignature(It.IsAny<string>())).Returns("0xAABBEFA7");
             demoService.Setup(s => s.Submit(It.IsAny<string>(), It.IsAny<string>())).Returns(true);
             
             // the first time it returns false, the second time it returns true
@@ -32,6 +32,8 @@ namespace DemoCatleProxy.RestartableFlow.Tests
             var flowData = flowEngine.RunFlow(flow);
             Assert.True(flowData.IsStopped);
             Assert.False(flowData.IsFinished);
+            Assert.Single(flowData.ModelHistory);
+            Assert.True((flowData.ModelHistory[0] as Model1)?.IsLoaded);
 
             // assume we saved flowData to a database and rerun the flow one day after
             var clonedFlowData = flowData.CloneObject();
