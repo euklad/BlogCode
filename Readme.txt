@@ -1,0 +1,1 @@
+This repository contains source code for a series of blogs published on different resources by Evgeny Ukladchikov Pro Coders.
