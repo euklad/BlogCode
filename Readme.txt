@@ -1,5 +1,12 @@
-This repository contains source code for a series of blogs published on different resources by Evgeny Ukladchikov Pro Coders.
+This repository contains source code of demo projects for a series of blogs published on different resources by Evgeny Ukladchikov Pro Coders.
+The projects created using Microsoft Visual Studio 2019 .NET Core 3.1.
 
 In [DemoDynamicContent-story1] folder you can find a solution that generates dynamic content on a Microsoft Blazor page.
 
 Folder [DemoDynamicContent-story2] contains a solution that embeds externally create custom components to a dynamic Blazor page.
+
+Solution in folder [DemoCastleProxy-story3] demonstrates hwo to use Castle Dynamic Proxy to track model changes and trigger rules when a model property changed.
+
+In folder [DemoCatleProxyRestartableFlow-story4] you can find a solution that uses proxy intercetors to restart C# functions from the prevously saved point.
+
+Other demo projects coming.
