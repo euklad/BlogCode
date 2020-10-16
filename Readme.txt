@@ -2,6 +2,7 @@ This repository contains source code of demo projects for a series of blogs publ
 The projects created using Microsoft Visual Studio 2019 .NET Core 3.1.
 
 In [DemoDynamicContent-story1] folder you can find a solution that generates dynamic content on a Microsoft Blazor page.
+https://www.codeproject.com/Articles/5282481/Microsoft-Blazor-Dynamic-Content
 
 Folder [DemoDynamicContent-story2] contains a solution that embeds externally create custom components to a dynamic Blazor page.
 
