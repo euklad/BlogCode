@@ -5,6 +5,7 @@ In [DemoDynamicContent-story1] folder you can find a solution that generates dyn
 https://www.codeproject.com/Articles/5282481/Microsoft-Blazor-Dynamic-Content
 
 Folder [DemoDynamicContent-story2] contains a solution that embeds externally create custom components to a dynamic Blazor page.
+https://www.codeproject.com/Articles/5282821/Microsoft-Blazor-Custom-Controls-for-Dynamic-Conte
 
 Solution in folder [DemoCastleProxy-story3] demonstrates hwo to use Castle Dynamic Proxy to track model changes and trigger rules when a model property changed.
 
