@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoSystemTextJson", "DemoSystemTextJson\DemoSystemTextJson.csproj", "{C24F3B0C-5B00-476C-BD7B-209C24DFB16E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoSystemTextJson.Tests", "DemoSystemTextJson.Tests\DemoSystemTextJson.Tests.csproj", "{64A80D11-1D99-48A3-940C-F225DD500D0B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C24F3B0C-5B00-476C-BD7B-209C24DFB16E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C24F3B0C-5B00-476C-BD7B-209C24DFB16E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C24F3B0C-5B00-476C-BD7B-209C24DFB16E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C24F3B0C-5B00-476C-BD7B-209C24DFB16E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64A80D11-1D99-48A3-940C-F225DD500D0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64A80D11-1D99-48A3-940C-F225DD500D0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64A80D11-1D99-48A3-940C-F225DD500D0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64A80D11-1D99-48A3-940C-F225DD500D0B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3C255F17-91EC-41FC-A739-53A747FFB215}
+	EndGlobalSection
+EndGlobal
