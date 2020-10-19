@@ -4,7 +4,7 @@ using System.Text.Json;
 
 namespace DemoSystemTextJson.Tests
 {
-    public class SerializationTests
+    public class JsonSerializationTests
     {
         private MyState GetSampleData()
         {

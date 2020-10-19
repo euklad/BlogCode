@@ -4,12 +4,7 @@ using System.Text;
 
 namespace DemoSystemTextJson.Tests
 {
-    public interface IModel
-    {
-
-    }
-
-    public class MyModel : IModel
+     public class MyModel
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -24,23 +19,5 @@ namespace DemoSystemTextJson.Tests
         public DateTime LastUpdated { get; set; }
 
         public object Model { get; set; }
-    }
-
-    public class MyStateModified : IJsonModelWrapper
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public bool IsReady { get; set; }
-        public DateTime LastUpdated { get; set; }
-
-        public object Model { get; set; }
-
-        // IJsonModelWrapper
-        public string ModelFullName { get; set; }
-    }
-
-    public class MyStateWrapper : MyState, IJsonModelWrapper
-    {
-        public string ModelFullName { get; set; }
     }
 }

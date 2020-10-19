@@ -2,21 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DemoSystemTextJson
+namespace DemoSystemTextJson.Tests
 {
-    public interface IModel
-    {
-
-    }
-
-    public class MyModel : IModel
-    {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public DateTime BirthDate { get; set; }
-    }
-
-    public class MyState
+    public class MyStateModified : IJsonModelWrapper
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -24,5 +12,8 @@ namespace DemoSystemTextJson
         public DateTime LastUpdated { get; set; }
 
         public object Model { get; set; }
+
+        // IJsonModelWrapper
+        public string ModelFullName { get; set; }
     }
 }

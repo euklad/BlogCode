@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace DemoSystemTextJson.Tests
 {
@@ -18,6 +19,13 @@ namespace DemoSystemTextJson.Tests
                 LastUpdated = new DateTime(2015, 10, 21),
                 Model = new MyModel { FirstName = "Alex", LastName = "Brown", BirthDate = new DateTime(1990, 1, 12) }
             };
+        }
+
+        private readonly ITestOutputHelper _output;
+
+        public JsonModelConverterTests(ITestOutputHelper output)
+        {
+            _output = output;
         }
 
         [Fact]
@@ -48,7 +56,7 @@ namespace DemoSystemTextJson.Tests
             }
 
             sw.Stop();
-            Console.WriteLine($"JsonModelConverterPerformanceTest elapsed {sw.ElapsedMilliseconds} ms");
+            _output.WriteLine($"JsonModelConverterPerformanceTest elapsed {sw.ElapsedMilliseconds} ms");
         }
 
         
