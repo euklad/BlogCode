@@ -11,6 +11,7 @@ Folder [DemoDynamicContent-story2] contains a solution that embeds externally cr
 https://www.codeproject.com/Articles/5282821/Microsoft-Blazor-Custom-Controls-for-Dynamic-Conte
 
 Solution in folder [DemoCastleProxy-story3] demonstrates hwo to use Castle Dynamic Proxy to track model changes and trigger rules when a model property changed.
+https://www.codeproject.com/Articles/5283541/Castle-Dynamic-Proxy-Interceptors-to-track-model-c
 
 In folder [DemoCatleProxyRestartableFlow-story4] you can find a solution that uses proxy intercetors to restart C# functions from the prevously saved point.
 
