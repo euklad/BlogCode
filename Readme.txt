@@ -1,7 +1,7 @@
 Created by Pro Coders team
 Please visit our web site https://www.procoders.com.au
 
-This repository contains a source code of demo projects for a series of blogs published on different resources by Evgeny Ukladchikov Pro Coders.
+This repository contains a source code of demo projects for a series of blog posts published on different resources by Evgeny Ukladchikov Pro Coders.
 The projects created using Microsoft Visual Studio 2019 .NET Core 3.1.
 
 In the [DemoDynamicContent-story1] folder you can find a solution that generates dynamic content on a Microsoft Blazor page.
