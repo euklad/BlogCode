@@ -14,5 +14,9 @@ The solution in the folder [DemoCastleProxy-story3] demonstrates how to use Cast
 https://www.codeproject.com/Articles/5283541/Castle-Dynamic-Proxy-Interceptors-to-track-model-c
 
 In folder [DemoCatleProxyRestartableFlow-story4] you can find a solution that uses proxy interceptors to restart C# functions from the previously saved point.
+https://www.codeproject.com/Articles/5284037/Castle-Dynamic-Proxy-Interceptors-to-Build-Restart
 
-Other demo projects coming.
+Folder [DemoSystemTextJson-story5] stores a solution for the blog post about System.Text.Json Serialization of dynamic objects Newtonsoft "$type" like approach
+https://www.codeproject.com/Articles/5284591/Adding-type-to-System-Text-Json-Serialization-like
+
+
