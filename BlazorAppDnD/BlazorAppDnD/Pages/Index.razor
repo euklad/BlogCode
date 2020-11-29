@@ -1,0 +1,73 @@
+﻿@page "/"
+@inject IJSRuntime JS;
+
+<div class="bg-success">You can accept or deny items.</div>
+
+<hr />
+
+<div>I'm a div inside the HTML</div>
+<svg width="100%" height="700" style="border:1px red solid" @ref="_svgRef" @ondragover:preventDefault @ondragover="()=> { }" @ondragenter:preventDefault @ondragenter="DragEnter" @ondrop="DragEnd" @ondrop:preventDefault @ondragstart="DragStart" >
+    <foreignObject  class="node" x="@_x" y="@_y" style="overflow: visible;" width="100%" height="100%" @onmousedown="(a) => MouseDown(a, 1)">
+        <div  draggable="true" >
+
+            <div style="background-color: blueviolet; width: 150px; height: 150px;">
+                <input type="checkbox" />
+                Bla bla
+            </div>
+        </div>
+    </foreignObject>
+
+</svg>
+<div>Interesting! But you a Foreign Object.</div>
+
+@code {
+    // ondragstart="event.dataTransfer.setData('text', event.target.id);"
+    double _x { get; set; } = 46;
+    double _y { get; set; } = 22;
+
+    private ElementReference _foRef;
+    private ElementReference _svgRef;
+
+    private ElementReference _dragging;
+
+    double _offsetX;
+    double _offsetY;
+
+    private void MouseDown(MouseEventArgs args, int index)
+    {
+        //_offsetX = args.ClientX - _x;
+        //_offsetY = args.ClientY - _y;
+    }
+
+    private async Task DragEnter(DragEventArgs args)
+    {
+        //_offsetX = args.ScreenX;
+        //_offsetY = args.ScreenY;
+        //_dragging = args.
+    }
+
+    private async Task DragStart(DragEventArgs args)
+    {
+        var rect = await JS.InvokeAsync<BoundingClientRect>("MyDOMGetBoundingClientRect", new object[] { _svgRef });
+        _offsetX = args.ClientX - _x - rect.X;
+        _offsetY = args.ClientY - _y -rect.Y;
+    }
+
+    private async Task DragEnd(DragEventArgs args)
+    {
+        var c1 = new Point { X = args.ClientX - _offsetX, Y = args.ClientY - _offsetY };
+
+        var pnt = await JS.InvokeAsync<Point>("ConvertToSvg", new object[] { _svgRef, c1 });
+
+        _x = pnt.X;
+        _y = pnt.Y;
+    }
+
+    private void OnDrop()
+    {
+        _x = 100;
+        _y = 100;
+        StateHasChanged();
+    }
+
+}

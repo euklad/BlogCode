@@ -1,0 +1,151 @@
+﻿@typeparam TItem
+@inject IJSRuntime JS;
+
+<svg width="@(Parameters.Width)" height="@(Parameters.Height)" style="border:1px red solid" @ref="_svgRef" @ondragover:preventDefault @ondragover="()=> { }"
+     @ondragenter:preventDefault @ondragenter="DragEnter" @ondrop="DragEnd" @ondrop:preventDefault @ondragstart="DragStart">
+
+    @foreach (var item in Items)
+    {
+        var index = Items.IndexOf(item);
+
+        @*<foreignObject class="node" x="@(_itemModels[index].ConvX)px" y="@(_itemModels[index].ConvY)px" width="150px" height="150px"
+            @onmousedown="(a) => MouseDown(a, index)">*@
+
+        <foreignObject class="node" x="@(_itemModels[index].X)px" y="@(_itemModels[index].Y)px" width="150px" height="150px"
+                       @onmousedown="(a) => MouseDown(a, index)">
+
+            @*<foreignObject class="node" x="46" y="22" style="overflow: visible;" width="100" height="100"
+                @onmousedown="(a) => MouseDown(a, index)">*@
+            @*<div>la la</div>*@
+            <div style="border:1px green solid; z-index: 1" draggable="true">
+
+
+                <div style="background-color: blueviolet; width: 150px; height: 150px;">
+                    <input type="checkbox" />
+                    Bla bla
+                </div>
+
+                @*@{
+            if (ChildContent != null)
+            {
+                @ChildContent(item);
+            }
+        }*@
+
+            </div>
+        </foreignObject>
+    }
+
+    <line x1="@lx" y1="@ly" x2="@lx2" y2="@ly2" stroke="black" />
+</svg>
+
+@code {
+    [Parameter]
+    public DiagramPanelParameters Parameters { get; set; }
+
+    [Parameter]
+    public RenderFragment<TItem> ChildContent { get; set; }
+
+    [Parameter]
+    public IList<TItem> Items { get; set; }
+
+    private List<DiagramItemModel> _itemModels;
+    private int _draggingIndex;
+
+    private DiagramItemModel _dragging { get { return _itemModels[_draggingIndex]; } }
+
+    // ondragstart="event.dataTransfer.setData('text', event.target.id);"
+    //double _x { get; set; } = 46;
+    //double _y { get; set; } = 22;
+    //double _offsetX;
+    //double _offsetY;
+
+    double lx { get; set; }
+    double ly { get; set; }
+    double lx2 { get; set; }
+    double ly2 { get; set; }
+
+    private ElementReference _svgRef;
+
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await base.OnParametersSetAsync();
+
+        _itemModels = Items.Select(i => new DiagramItemModel { X = 46, Y = 22 }).ToList();
+        StateHasChanged();
+
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        //foreach (var item in _itemModels)
+        //{
+        //    var p = await GetSvgPoint(item.X, item.Y);
+        //    item.ConvX = p.X;
+        //    item.ConvY = p.Y;
+        //}
+
+        //StateHasChanged();
+
+    }
+
+    private void RefreshLine()
+    {
+        lx = _itemModels[0].X;
+        ly = _itemModels[0].Y;
+        lx2 = _itemModels[1].X;
+        ly2 = _itemModels[1].Y;
+        StateHasChanged();
+    }
+
+    private void MouseDown(MouseEventArgs args, int index)
+    {
+        _draggingIndex = index;
+        //_offsetX = args.ClientX - _x;
+        //_offsetY = args.ClientY - _y;
+    }
+
+    private async Task DragEnter(DragEventArgs args)
+    {
+        //_offsetX = args.ScreenX;
+        //_offsetY = args.ScreenY;
+        //_dragging = args.
+    }
+
+    private async Task DragStart(DragEventArgs args)
+    {
+        var rect = await JS.InvokeAsync<BoundingClientRect>("MyDOMGetBoundingClientRect", new object[] { _svgRef });
+        _dragging.OffsetX = args.ClientX - _dragging.X - rect.X;
+        _dragging.OffsetY = args.ClientY - _dragging.Y - rect.Y;
+    }
+
+    private async Task DragEnd(DragEventArgs args)
+    {
+        var c1 = new Point { X = args.ClientX - _dragging.OffsetX, Y = args.ClientY - _dragging.OffsetY };
+
+        var point = await JS.InvokeAsync<Point>("ConvertToSvg", new object[] { _svgRef, c1 });
+
+        _dragging.X = point.X;
+        _dragging.Y = point.Y;
+
+        RefreshLine();
+    }
+
+    private void OnDrop()
+    {
+        //_x = 100;
+        //_y = 100;
+        StateHasChanged();
+    }
+
+    private async Task<Point> GetSvgPoint(double x, double y)
+    {
+        // var rect = await JS.InvokeAsync<BoundingClientRect>("MyDOMGetBoundingClientRect", new object[] { _svgRef });
+        var rect = new BoundingClientRect();
+        var point = new Point { X = x - rect.X, Y = y - rect.Y };
+        var result = await JS.InvokeAsync<Point>("ConvertToSvg", new object[] { _svgRef, point });
+        return result;
+    }
+
+}

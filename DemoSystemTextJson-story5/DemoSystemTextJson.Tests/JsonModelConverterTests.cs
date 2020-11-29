@@ -58,7 +58,5 @@ namespace DemoSystemTextJson.Tests
             sw.Stop();
             _output.WriteLine($"JsonModelConverterPerformanceTest elapsed {sw.ElapsedMilliseconds} ms");
         }
-
-        
     }
 }

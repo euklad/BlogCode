@@ -1,0 +1,208 @@
+﻿@typeparam TItem
+@inject IJSRuntime JS;
+
+    <div @ref="_svgContainerRef" class="svg-panel-container">
+        <svg @ref="_svgRef" width="@Parameters.Width" height="@Parameters.Height">
+            @*<line x1="0" y1="0" x2="800" y2="600" stroke="black" stroke-width="4px" stroke-linecap="round" />
+            
+            @if (_lines != null)
+            {
+                @foreach (var ln in _lines)
+                {
+                    var i = _lines.IndexOf(ln);
+
+                    <line @ref="_lineRefs[i]" x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="4px" stroke-linecap="round" />
+                }
+            }*@
+
+            @if (Lines != null)
+            {
+                @foreach (var ln in Lines)
+                {
+                    var i = Lines.IndexOf(ln);
+
+                    <line x1="@ln.X1" y1="@ln.Y1" x2="@ln.X2" y2="@ln.Y2" stroke="black" stroke-width="4px" stroke-linecap="round" />
+                }
+            }
+        </svg>
+    </div>
+
+    <div @ref="_outerRef" class="svg-panel-outer" style="width: 800px; height: 500px" @ondragover:preventDefault @ondragover="()=> { }"
+         @ondragenter:preventDefault @ondragenter="DragEnter" @ondrop="DragEnd" @ondrop:preventDefault @ondragstart="DragStart">
+
+        @if (_itemModels != null && _itemModels.Any())
+        {
+            @foreach (var item in Items)
+            {
+                var index = Items.IndexOf(item);
+
+                <div @ref="_draggableRefs[index]" draggable="true" @onmousedown="(a) => MouseDown(a, index)"
+                     style="position: absolute; left:@(_itemModels[index].X)px; top: @(_itemModels[index].Y)px; width: 150px; height: 150px; opacity: 0.8" >
+            
+                    @if (ChildContent != null)
+                    {
+                        @ChildContent(item);
+                    }
+
+                </div>
+            }
+        }
+    </div>
+
+@code {
+    [Parameter]
+    public DiagramPanelParameters Parameters { get; set; }
+
+    [Parameter]
+    public RenderFragment<TItem> ChildContent { get; set; }
+
+    [Parameter]
+    public IList<TItem> Items { get; set; }
+
+    [Parameter]
+    public IList<Line> Lines { get; set; }
+
+    private ElementReference _svgContainerRef;
+    private ElementReference _outerRef;
+    private List<ElementReference> _lineRefs;
+    private List<ElementReference> _draggableRefs;
+    private List<Line> _lines;
+
+    private List<DiagramItemModel> _itemModels;
+    private int _draggingIndex;
+
+    private DiagramItemModel _dragging { get { return _itemModels[_draggingIndex]; } }
+
+    // ondragstart="event.dataTransfer.setData('text', event.target.id);"
+    //double _x { get; set; } = 46;
+    //double _y { get; set; } = 22;
+    //double _offsetX;
+    //double _offsetY;
+
+    double lx { get; set; }
+    double ly { get; set; }
+    double lx2 { get; set; }
+    double ly2 { get; set; }
+
+    private ElementReference _svgRef;
+
+    private bool _refreshLinesOnRender;
+
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await base.OnParametersSetAsync();
+
+        _itemModels = new List<DiagramItemModel>();
+        _draggableRefs = new ElementReference[Items.Count].ToList();
+        _lineRefs = new ElementReference[Items.Count].ToList();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+
+        if (firstRender)
+        {
+            var rect = await JS.InvokeAsync<BoundingClientRect>("MyDOMGetBoundingClientRect", new object[] { _outerRef });
+            _itemModels = Items.Select(i => new DiagramItemModel { X = rect.X, Y = rect.Y }).ToList();
+
+
+
+            //await RefreshLine();
+            StateHasChanged();
+        }
+
+        //_lines = new List<Line>();
+        //_lines.Add(new Line { Start = _draggableRefs[0], End = _draggableRefs[1] });
+
+        if (_refreshLinesOnRender)
+        {
+            _refreshLinesOnRender = false;
+            await RefreshLines();
+            StateHasChanged();
+        }
+    }
+
+    private async Task RefreshLines()
+    {
+        if (Lines != null)
+        {
+            for (int i = 0; i < Lines.Count; i++)
+            {
+                // await JS.InvokeAsync<object>("elementsLine", new object[] { _svgContainerRef.Id, _svgRef, _lineRefs[i], _lines[i].Start, _lines[i].End });
+                var line = Lines[i];
+
+                if (line.Start.Id != null && line.End.Id != null)
+                {
+                    var startRect = await JS.InvokeAsync<BoundingClientRect>("MyIdGetBoundingClientRect", new object[] { line.Start.Id });
+                    var endRect = await JS.InvokeAsync<BoundingClientRect>("MyIdGetBoundingClientRect", new object[] { line.End.Id });
+
+                    var sp = new Point { X = startRect.X + 0.5 * startRect.Width, Y = startRect.Y + 0.5 * startRect.Height };
+                    var spConv = await JS.InvokeAsync<Point>("ConvertToSvg", new object[] { _svgRef, sp });
+                    line.X1 = spConv.X;
+                    line.Y1 = spConv.Y;
+
+                    var ep = new Point { X = endRect.X + 0.5 * endRect.Width, Y = endRect.Y + 0.5 * endRect.Height };
+                    var epConv = await JS.InvokeAsync<Point>("ConvertToSvg", new object[] { _svgRef, ep });
+                    line.X2 = epConv.X;
+                    line.Y2 = epConv.Y;
+                }
+            }
+        }
+    }
+
+
+
+    private void MouseDown(MouseEventArgs args, int index)
+    {
+        _draggingIndex = index;
+        //_offsetX = args.ClientX - _x;
+        //_offsetY = args.ClientY - _y;
+    }
+
+    private async Task DragEnter(DragEventArgs args)
+    {
+        //_offsetX = args.ScreenX;
+        //_offsetY = args.ScreenY;
+        //_dragging = args.
+    }
+
+    private async Task DragStart(DragEventArgs args)
+    {
+        // var rect = await JS.InvokeAsync<BoundingClientRect>("MyDOMGetBoundingClientRect", new object[] { _outerRef });
+        _dragging.OffsetX = args.ClientX - _dragging.X;// - rect.X;
+        _dragging.OffsetY = args.ClientY - _dragging.Y;// - rect.Y;
+    }
+
+    private async Task DragEnd(DragEventArgs args)
+    {
+        var c1 = new Point { X = args.ClientX - _dragging.OffsetX, Y = args.ClientY - _dragging.OffsetY };
+
+        // var point = await JS.InvokeAsync<Point>("ConvertToSvg", new object[] { _svgRef, c1 });
+        var point = c1;
+
+        _dragging.X = point.X;
+        _dragging.Y = point.Y;
+
+        _refreshLinesOnRender = true;
+
+        StateHasChanged();
+    }
+
+    private void OnDrop()
+    {
+        //_x = 100;
+        //_y = 100;
+        StateHasChanged();
+    }
+
+    //private async Task<Point> GetSvgPoint(double x, double y)
+    //{
+    //    // var rect = await JS.InvokeAsync<BoundingClientRect>("MyDOMGetBoundingClientRect", new object[] { _svgRef });
+    //    var rect = new BoundingClientRect();
+    //    var point = new Point { X = x - rect.X, Y = y - rect.Y };
+    //    var result = await JS.InvokeAsync<Point>("ConvertToSvg", new object[] { _svgRef, point });
+    //    return result;
+    //}
+
+}

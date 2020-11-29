@@ -6,7 +6,7 @@ namespace DemoSystemTextJson.Tests
 {
     public class JsonSerializationTests
     {
-        private MyState GetSampleData()
+        public static MyState GetSampleData()
         {
             return new MyState
             {
@@ -43,6 +43,5 @@ namespace DemoSystemTextJson.Tests
             restoredData.Model = JsonSerializer.Deserialize<MyModel>(modelJson);
             Assert.Equal(typeof(MyModel), restoredData.Model.GetType());
         }
-
     }
 }

@@ -1,0 +1,46 @@
+﻿@page "/counter"
+@using BlazorAppDragAndDrop.Components
+
+<div class="bg-success">You can accept or deny items.</div>
+
+<hr />
+
+<DiagramLinePanel Parameters="@_parameters" Items="@_items" Lines="_lines">
+    <div style="background-color: blueviolet; width: 150px; height: 150px; z-index: 2">
+        @context
+        @{
+            var index = _items.IndexOf(context);
+        }
+        <input type="checkbox" id="@($"refId{index}")" />
+        Bla bla
+    </div>
+</DiagramLinePanel>
+
+@code {
+    private DiagramPanelParameters _parameters = new DiagramPanelParameters { Width = 900, Height = 700 };
+
+    private List<string> _items = (new string[] { "1", "2" }).ToList();
+
+    private List<ElementReference> _refs;
+    private List<Line> _lines;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        _refs = (new ElementReference[] { new ElementReference("refId0"), new ElementReference("refId1") }).ToList();
+        _lines = new List<Line>();
+        _lines.Add(new Line { Start = _refs[0], End = _refs[1] });
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        //_lines = new List<Line>();
+        //_lines.Add(new Line { Start = _refs[0], End = _refs[1] });
+
+        //if (firstRender)
+        //{
+        //    StateHasChanged();
+        //}
+    }
+}

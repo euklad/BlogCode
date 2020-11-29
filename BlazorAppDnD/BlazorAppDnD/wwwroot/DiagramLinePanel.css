@@ -1,0 +1,12 @@
+﻿.svg-panel-container {
+    z-index: -10;
+    position: absolute;
+    //background-color: silver;
+    opacity: 0.5;
+}
+
+.svg-panel-outer {
+    //margin: 0 auto;
+    //width: 80%;
+    //background-color: silver;
+}

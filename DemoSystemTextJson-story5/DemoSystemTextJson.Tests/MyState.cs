@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DemoSystemTextJson.Tests
 {
-     public class MyModel
+    public class MyModel
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
