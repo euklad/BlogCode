@@ -27,7 +27,7 @@
         </svg>
     </div>
 
-    <div @ref="_outerRef" class="svg-panel-outer" style="width: 800px; height: 500px" @ondragover:preventDefault @ondragover="()=> { }"
+    <div @ref="_outerRef" class="svg-panel-outer" style="width: @(Parameters.Width)px; height: @(Parameters.Height)px;" @ondragover:preventDefault @ondragover="()=> { }"
          @ondragenter:preventDefault @ondragenter="DragEnter" @ondrop="DragEnd" @ondrop:preventDefault @ondragstart="DragStart">
 
         @if (_itemModels != null && _itemModels.Any())
@@ -37,8 +37,8 @@
                 var index = Items.IndexOf(item);
 
                 <div @ref="_draggableRefs[index]" draggable="true" @onmousedown="(a) => MouseDown(a, index)"
-                     style="position: absolute; left:@(_itemModels[index].X)px; top: @(_itemModels[index].Y)px; width: 150px; height: 150px; opacity: 0.8" >
-            
+                     style="position: absolute; left:@(_itemModels[index].X)px; top: @(_itemModels[index].Y)px; width: auto; height: auto; opacity: 0.8;">
+
                     @if (ChildContent != null)
                     {
                         @ChildContent(item);

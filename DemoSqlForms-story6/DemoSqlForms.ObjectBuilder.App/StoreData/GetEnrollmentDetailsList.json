@@ -1,0 +1,136 @@
+{
+  "Name": "GetEnrollmentDetailsList",
+  "DataService": "MyDataService",
+  "Namespace": "Default",
+  "ReturnTypeName": "EnrollmentDetails",
+  "SchemaName": null,
+  "SchemaVersion": null,
+  "Tags": null,
+  "Query": {
+    "QueryAlias": null,
+    "Comment": null,
+    "Parameters": {
+      "@p1": {
+        "Name": "@p1",
+        "Type": "Int32"
+      }
+    },
+    "Fields": {
+      "EnrollmentID": {
+        "FieldAlias": "EnrollmentID",
+        "IsOutput": true,
+        "Field": {
+          "ObjectAlias": "e",
+          "FieldName": "EnrollmentID"
+        },
+        "Operation": null,
+        "RawExpression": null
+      },
+      "CourseID": {
+        "FieldAlias": "CourseID",
+        "IsOutput": true,
+        "Field": {
+          "ObjectAlias": "e",
+          "FieldName": "CourseID"
+        },
+        "Operation": null,
+        "RawExpression": null
+      },
+      "Grade": {
+        "FieldAlias": "Grade",
+        "IsOutput": true,
+        "Field": {
+          "ObjectAlias": "e",
+          "FieldName": "Grade"
+        },
+        "Operation": null,
+        "RawExpression": null
+      },
+      "StudentID": {
+        "FieldAlias": "StudentID",
+        "IsOutput": true,
+        "Field": {
+          "ObjectAlias": "e",
+          "FieldName": "StudentID"
+        },
+        "Operation": null,
+        "RawExpression": null
+      },
+      "Credits": {
+        "FieldAlias": "Credits",
+        "IsOutput": true,
+        "Field": {
+          "ObjectAlias": "c",
+          "FieldName": "Credits"
+        },
+        "Operation": null,
+        "RawExpression": null
+      },
+      "Title": {
+        "FieldAlias": "Title",
+        "IsOutput": true,
+        "Field": {
+          "ObjectAlias": "c",
+          "FieldName": "Title"
+        },
+        "Operation": null,
+        "RawExpression": null
+      }
+    },
+    "Tables": {
+      "e": {
+        "ObjectAlias": "e",
+        "TableName": "Enrollment"
+      },
+      "c": {
+        "ObjectAlias": "c",
+        "TableName": "Course"
+      }
+    },
+    "SubQueries": null,
+    "Joins": [
+      {
+        "LeftObjectAlias": "c",
+        "LeftField": "CourseID",
+        "RightObjectAlias": "e",
+        "RightField": "CourseID",
+        "JoinType": "Inner"
+      }
+    ],
+    "GroupByFields": null,
+    "Having": null,
+    "Where": {
+      "Expression": {
+        "Value": null,
+        "QueryField": null,
+        "Param": null,
+        "Left": {
+          "Value": null,
+          "QueryField": {
+            "FieldAlias": null,
+            "IsOutput": false,
+            "Field": {
+              "ObjectAlias": "e",
+              "FieldName": "StudentID"
+            },
+            "Operation": null,
+            "RawExpression": null
+          },
+          "Param": null,
+          "Left": null,
+          "Operator": null,
+          "Right": null
+        },
+        "Operator": "=",
+        "Right": {
+          "Value": null,
+          "QueryField": null,
+          "Param": "@p1",
+          "Left": null,
+          "Operator": null,
+          "Right": null
+        }
+      }
+    }
+  }
+}

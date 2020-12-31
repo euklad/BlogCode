@@ -5,16 +5,18 @@
 
 <hr />
 
-<DiagramLinePanel Parameters="@_parameters" Items="@_items" Lines="_lines">
-    <div style="background-color: blueviolet; width: 150px; height: 150px; z-index: 2">
-        @context
-        @{
-            var index = _items.IndexOf(context);
-        }
-        <input type="checkbox" id="@($"refId{index}")" />
-        Bla bla
-    </div>
-</DiagramLinePanel>
+<div class="plk-flex overflow-auto" style="min-height: 300px; height: 300px">
+    <DiagramLinePanel Parameters="@_parameters" Items="@_items" Lines="_lines">
+        <div style="background-color: blueviolet; width: 150px; height: 150px; z-index: 2">
+            @context
+            @{
+                var index = _items.IndexOf(context);
+            }
+            <input type="checkbox" id="@($"refId{index}")" />
+            Bla bla
+        </div>
+    </DiagramLinePanel>
+</div>
 
 @code {
     private DiagramPanelParameters _parameters = new DiagramPanelParameters { Width = 900, Height = 700 };

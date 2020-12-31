@@ -8,5 +8,7 @@
 .svg-panel-outer {
     //margin: 0 auto;
     //width: 80%;
-    //background-color: silver;
+    position: relative;
+    background-color: silver;
+    opacity: 0.5;
 }

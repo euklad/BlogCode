@@ -1,0 +1,191 @@
+{
+  "Name": null,
+  "DbContextName": "DemoSqlForms.Database.Model.SchoolContext",
+  "Title": null,
+  "Type": null,
+  "Comment": null,
+  "Tags": null,
+  "Version": null,
+  "Definitions": {
+    "Course": {
+      "Name": "Course",
+      "Type": null,
+      "Comment": null,
+      "Properties": {
+        "CourseID": {
+          "Name": "CourseID",
+          "Type": "Int32",
+          "Comment": null,
+          "MinLength": 0,
+          "MaxLength": null,
+          "Pk": true,
+          "AutoIncrement": false,
+          "Fk": false,
+          "ExternalId": false,
+          "Order": 0,
+          "ForeignKeys": null
+        },
+        "Credits": {
+          "Name": "Credits",
+          "Type": "Int32",
+          "Comment": null,
+          "MinLength": 0,
+          "MaxLength": null,
+          "Pk": false,
+          "AutoIncrement": false,
+          "Fk": false,
+          "ExternalId": false,
+          "Order": 1,
+          "ForeignKeys": null
+        },
+        "Title": {
+          "Name": "Title",
+          "Type": "String",
+          "Comment": null,
+          "MinLength": 0,
+          "MaxLength": null,
+          "Pk": false,
+          "AutoIncrement": false,
+          "Fk": false,
+          "ExternalId": false,
+          "Order": 2,
+          "ForeignKeys": null
+        }
+      }
+    },
+    "Enrollment": {
+      "Name": "Enrollment",
+      "Type": null,
+      "Comment": null,
+      "Properties": {
+        "EnrollmentID": {
+          "Name": "EnrollmentID",
+          "Type": "Int32",
+          "Comment": null,
+          "MinLength": 0,
+          "MaxLength": null,
+          "Pk": true,
+          "AutoIncrement": true,
+          "Fk": false,
+          "ExternalId": false,
+          "Order": 0,
+          "ForeignKeys": null
+        },
+        "CourseID": {
+          "Name": "CourseID",
+          "Type": "Int32",
+          "Comment": null,
+          "MinLength": 0,
+          "MaxLength": null,
+          "Pk": false,
+          "AutoIncrement": false,
+          "Fk": true,
+          "ExternalId": false,
+          "Order": 1,
+          "ForeignKeys": [
+            {
+              "DefinitionName": "Course",
+              "PropertyName": "CourseID",
+              "CompositePropertyNames": [
+                "CourseID"
+              ]
+            }
+          ]
+        },
+        "Grade": {
+          "Name": "Grade",
+          "Type": "Grade?",
+          "Comment": null,
+          "MinLength": 0,
+          "MaxLength": null,
+          "Pk": false,
+          "AutoIncrement": false,
+          "Fk": false,
+          "ExternalId": false,
+          "Order": 2,
+          "ForeignKeys": null
+        },
+        "StudentID": {
+          "Name": "StudentID",
+          "Type": "Int32",
+          "Comment": null,
+          "MinLength": 0,
+          "MaxLength": null,
+          "Pk": false,
+          "AutoIncrement": false,
+          "Fk": true,
+          "ExternalId": false,
+          "Order": 3,
+          "ForeignKeys": [
+            {
+              "DefinitionName": "Student",
+              "PropertyName": "ID",
+              "CompositePropertyNames": [
+                "ID"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "Student": {
+      "Name": "Student",
+      "Type": null,
+      "Comment": null,
+      "Properties": {
+        "ID": {
+          "Name": "ID",
+          "Type": "Int32",
+          "Comment": null,
+          "MinLength": 0,
+          "MaxLength": null,
+          "Pk": true,
+          "AutoIncrement": true,
+          "Fk": false,
+          "ExternalId": false,
+          "Order": 0,
+          "ForeignKeys": null
+        },
+        "EnrollmentDate": {
+          "Name": "EnrollmentDate",
+          "Type": "DateTime",
+          "Comment": null,
+          "MinLength": 0,
+          "MaxLength": null,
+          "Pk": false,
+          "AutoIncrement": false,
+          "Fk": false,
+          "ExternalId": false,
+          "Order": 1,
+          "ForeignKeys": null
+        },
+        "FirstMidName": {
+          "Name": "FirstMidName",
+          "Type": "String",
+          "Comment": null,
+          "MinLength": 0,
+          "MaxLength": null,
+          "Pk": false,
+          "AutoIncrement": false,
+          "Fk": false,
+          "ExternalId": false,
+          "Order": 2,
+          "ForeignKeys": null
+        },
+        "LastName": {
+          "Name": "LastName",
+          "Type": "String",
+          "Comment": null,
+          "MinLength": 0,
+          "MaxLength": null,
+          "Pk": false,
+          "AutoIncrement": false,
+          "Fk": false,
+          "ExternalId": false,
+          "Order": 3,
+          "ForeignKeys": null
+        }
+      }
+    }
+  }
+}

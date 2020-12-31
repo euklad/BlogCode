@@ -1,0 +1,11 @@
+﻿@page "/EnrollmentList/{StudentId:int}"
+
+<h1>Student Enrollments</h1>
+
+<FormDynamicEditComponent TForm="StudentHeaderForm" Id="@StudentId" />
+<FormDataServiceListComponent TForm="EnrollmentListForm" ServiceParameters="@(new object[] { StudentId })"/>
+
+@code {
+    [Parameter]
+    public int StudentId { get; set; }
+}
