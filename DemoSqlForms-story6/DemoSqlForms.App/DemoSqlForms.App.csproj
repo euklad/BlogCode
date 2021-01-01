@@ -10,9 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\..\..\Repos\MasterDetailsDataEntry\Platz.SqlForms.Blazor\Platz.SqlForms.Blazor.csproj" />
-    <ProjectReference Include="..\..\..\..\..\..\..\Repos\MasterDetailsDataEntry\Platz.SqlForms.Shared\Platz.SqlForms.Shared.csproj" />
-    <ProjectReference Include="..\..\..\..\..\..\..\Repos\MasterDetailsDataEntry\Platz.SqlForms\Platz.SqlForms.csproj" />
     <ProjectReference Include="..\DemoSqlForms.Database\DemoSqlForms.Database.csproj" />
   </ItemGroup>
 

@@ -26,7 +26,14 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using Platz.SqlForms;
-using DemoSqlForms.Database.Model;
+<#
+    var contextName = Schema.DbContextName;
+    var contextNamelist = contextName.Split('.').ToList();
+    var ctxName = contextNamelist.Last();
+    contextNamelist.Remove(contextNamelist.Last());
+    var namespaceName = string.Join(".", contextNamelist.ToArray());
+#>
+using <#=namespaceName#>;
 
 <#
     if (Queries != null && Queries.Count > 0)
@@ -61,7 +68,7 @@ namespace <#=Queries.First().Namespace#>
 
     #region Data Service 
 
-    public partial class <#=Queries.First().DataService#> : DataServiceBase<<#=Schema.DbContextName#>>, I<#=Queries.First().DataService#>
+    public partial class <#=Queries.First().DataService#> : DataServiceBase<<#=ctxName#>>, I<#=Queries.First().DataService#>
     {
 <# 
         foreach (var query in Queries)

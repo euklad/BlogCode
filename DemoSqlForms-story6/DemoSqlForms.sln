@@ -7,13 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoSqlForms.App", "DemoSql
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoSqlForms.Database", "DemoSqlForms.Database\DemoSqlForms.Database.csproj", "{2C6EDABB-0A45-40E8-B666-0D824B0A6FCC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoSqlForms.ObjectBuilder.App", "DemoSqlForms.ObjectBuilder.App\DemoSqlForms.ObjectBuilder.App.csproj", "{863332A7-E3CC-4BB5-AEE6-0DA9F6943B16}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Platz.SqlForms", "..\..\..\..\..\..\Repos\MasterDetailsDataEntry\Platz.SqlForms\Platz.SqlForms.csproj", "{A42F7AE7-A1DA-4867-AEFB-DDC1D3BE3D22}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Platz.SqlForms.Shared", "..\..\..\..\..\..\Repos\MasterDetailsDataEntry\Platz.SqlForms.Shared\Platz.SqlForms.Shared.csproj", "{9AB7A1D8-7F6B-454B-9242-DFF308FB1769}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Platz.SqlForms.Blazor", "..\..\..\..\..\..\Repos\MasterDetailsDataEntry\Platz.SqlForms.Blazor\Platz.SqlForms.Blazor.csproj", "{FDA54375-A51A-4527-8C7F-660C61E93D54}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoSqlForms.ObjectBuilder.App", "DemoSqlForms.ObjectBuilder.App\DemoSqlForms.ObjectBuilder.App.csproj", "{863332A7-E3CC-4BB5-AEE6-0DA9F6943B16}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,18 +27,6 @@ Global
 		{863332A7-E3CC-4BB5-AEE6-0DA9F6943B16}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{863332A7-E3CC-4BB5-AEE6-0DA9F6943B16}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{863332A7-E3CC-4BB5-AEE6-0DA9F6943B16}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A42F7AE7-A1DA-4867-AEFB-DDC1D3BE3D22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A42F7AE7-A1DA-4867-AEFB-DDC1D3BE3D22}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A42F7AE7-A1DA-4867-AEFB-DDC1D3BE3D22}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A42F7AE7-A1DA-4867-AEFB-DDC1D3BE3D22}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9AB7A1D8-7F6B-454B-9242-DFF308FB1769}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9AB7A1D8-7F6B-454B-9242-DFF308FB1769}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9AB7A1D8-7F6B-454B-9242-DFF308FB1769}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9AB7A1D8-7F6B-454B-9242-DFF308FB1769}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FDA54375-A51A-4527-8C7F-660C61E93D54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FDA54375-A51A-4527-8C7F-660C61E93D54}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FDA54375-A51A-4527-8C7F-660C61E93D54}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FDA54375-A51A-4527-8C7F-660C61E93D54}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

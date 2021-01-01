@@ -22,7 +22,7 @@ namespace Default
 
     #region Data Service 
 
-    public partial class MyDataService : DataServiceBase<DemoSqlForms.Database.Model.SchoolContext>, IMyDataService
+    public partial class MyDataService : DataServiceBase<SchoolContext>, IMyDataService
     {
         public List<EnrollmentDetails> GetEnrollmentDetailsList(params object[] parameters)
         {
