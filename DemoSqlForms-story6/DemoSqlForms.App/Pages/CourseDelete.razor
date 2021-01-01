@@ -1,0 +1,10 @@
+﻿@page "/CourseDelete/{CourseId:int}"
+
+<h1>Delete Course</h1>
+
+<FormDynamicEditComponent TForm="CourseEditForm" Id="@CourseId" ForDelete="true" />
+
+@code {
+    [Parameter]
+    public int CourseId { get; set; }
+}

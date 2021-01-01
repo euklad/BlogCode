@@ -1,0 +1,11 @@
+﻿@page "/CourseEdit/{CourseId:int}"
+@page "/CourseEdit"
+
+<h1>Course Edit</h1>
+
+<FormDynamicEditComponent TForm="CourseEditForm" Id="@CourseId" />
+
+@code {
+    [Parameter]
+    public int CourseId { get; set; }
+}

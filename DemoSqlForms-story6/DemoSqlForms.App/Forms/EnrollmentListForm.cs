@@ -33,7 +33,7 @@ namespace DemoSqlForms.App.Forms
 
                 e.DialogButton("StudentList", ButtonActionTypes.Custom, "Back");
 
-                e.DialogButton("CustomerAddrEdit/0/{1}", ButtonActionTypes.Add);
+                e.DialogButton("EnrollmentEdit/0/{1}", ButtonActionTypes.Add);
             });
 
             builder.SetListMethod(GetEnrollmentDetailsList);
