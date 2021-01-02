@@ -13,7 +13,7 @@ namespace DemoSqlForms.App.Forms
         {
             builder.Entity<Course>(e =>
             {
-                e.Property(p => p.CourseID).IsPrimaryKey().IsUnique(); //.IsReadOnly(false) 
+                e.Property(p => p.CourseID).IsPrimaryKey().IsUnique(); 
 
                 e.Property(p => p.Title).IsRequired();
 

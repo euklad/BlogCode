@@ -29,7 +29,7 @@ namespace DemoSqlForms.App.Forms
                 // {0} = AddressId {1} = CustomerId
                 e.ContextButton("Edit", "StudentEdit/{0}").ContextButton("Delete", "StudentDelete/{0}").ContextButton("Enrollments", "EnrollmentList/{0}");
 
-                e.DialogButton("StudentEdit/{0}", ButtonActionTypes.Add);
+                e.DialogButton("StudentEdit/0", ButtonActionTypes.Add);
             });
 
             builder.SetListMethod(GetStudentList);

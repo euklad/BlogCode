@@ -1,0 +1,14 @@
+﻿@page "/EnrollmentDelete/{EnrollmentId:int}/{StudentId:int}"
+
+<h1>Student Enrollment Delete</h1>
+
+<FormDynamicEditComponent TForm="StudentHeaderForm" Id="@StudentId" />
+<FormDynamicEditComponent TForm="EnrollmentEditForm" Id="@EnrollmentId" ServiceParameters="new object[] { StudentId }" ForDelete="true" />
+
+@code {
+    [Parameter]
+    public int EnrollmentId { get; set; }
+
+    [Parameter]
+    public int StudentId { get; set; }
+}

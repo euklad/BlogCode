@@ -25,7 +25,7 @@ namespace DemoSqlForms.App.Forms
                 // {0} = AddressId {1} = CustomerId
                 e.ContextButton("Edit", "CourseEdit/{0}").ContextButton("Delete", "CourseDelete/{0}");
 
-                e.DialogButton("CourseEdit/{0}", ButtonActionTypes.Add);
+                e.DialogButton("CourseEdit/0", ButtonActionTypes.Add);
             });
 
             builder.SetListMethod(GetCourseList);
