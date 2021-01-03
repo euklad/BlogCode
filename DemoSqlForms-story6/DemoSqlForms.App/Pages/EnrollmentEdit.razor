@@ -2,7 +2,7 @@
 
 <h1>Student Enrollment Edit</h1>
 
-<FormDynamicEditComponent TForm="StudentHeaderForm" Id="@StudentId" />
+<FormDynamicEditComponent TForm="StudentHeaderForm" Id="@StudentId" ReadOnly="true" />
 <FormDynamicEditComponent TForm="EnrollmentEditForm" Id="@EnrollmentId" ServiceParameters="new object[] { StudentId }" />
 
 @code {
