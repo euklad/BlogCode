@@ -19,4 +19,5 @@ https://www.codeproject.com/Articles/5284037/Castle-Dynamic-Proxy-Interceptors-t
 Folder [DemoSystemTextJson-story5] stores a solution for the blog post about System.Text.Json Serialization of dynamic objects Newtonsoft "$type" like approach
 https://www.codeproject.com/Articles/5284591/Adding-type-to-System-Text-Json-Serialization-like
 
-
+Story6 blog post:
+https://www.codeproject.com/Articles/5291832/Microsoft-Blazor-Rapid-Development-with-SQL-Forms
