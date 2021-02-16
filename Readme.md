@@ -1,4 +1,4 @@
-If this project help you reduce time to develop, you can give me a cup of coffee :)
+If this project helps you reduce time to develop, you can give me a cup of coffee :)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate?hosted_button_id=Q7XEPGTBQFWNG)
 
 Created by Pro Coders team
