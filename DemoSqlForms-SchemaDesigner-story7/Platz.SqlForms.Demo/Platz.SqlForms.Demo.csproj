@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Platz.ObjectBuilder" Version="0.3.1" />
+    <PackageReference Include="Platz.SqlForms" Version="0.3.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="SchemaStore\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="SchemaServices\PlatzDemoDataContext.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PlatzDemoDataContext.cs</LastGenOutput>
+    </None>
+    <None Update="SchemaServices\PlatzDemoQueries.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PlatzDemoQueries.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="SchemaServices\PlatzDemoDataContext.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PlatzDemoDataContext.tt</DependentUpon>
+    </Compile>
+    <Compile Update="SchemaServices\PlatzDemoQueries.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PlatzDemoQueries.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>

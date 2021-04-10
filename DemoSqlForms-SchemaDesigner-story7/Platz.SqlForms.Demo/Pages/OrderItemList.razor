@@ -1,0 +1,12 @@
+﻿@page "/OrderItemList/{OrderId:int}"
+@using Platz.SqlForms.Demo.SchemaForms
+
+<h1>Order Items</h1>
+
+<FormDynamicEditComponent TForm="OrderReadOnlyForm" Id="@OrderId" ReadOnly="true" />
+<FormDataServiceListComponent TForm="OrderItemListForm" ServiceParameters="@(new object[] { OrderId })" />
+
+@code {
+    [Parameter]
+    public int OrderId { get; set; }
+}

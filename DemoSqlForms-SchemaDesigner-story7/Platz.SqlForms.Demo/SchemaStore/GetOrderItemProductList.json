@@ -1,0 +1,144 @@
+{
+  "Name": "GetOrderItemProductList",
+  "DataService": "PlatzDemoService",
+  "Namespace": "PlatzDemo.SchemaStore",
+  "ReturnTypeName": "OrderItemProduct",
+  "SchemaName": "PlatzDemo",
+  "SchemaFile": "C:\\Users\\eukla\\source\\repos\\BlogCode\\DemoSqlForms-SchemaDesigner-story7\\Platz.SqlForms.Demo\\SchemaStore\\Schema.json",
+  "SchemaVersion": "1.0",
+  "Tags": null,
+  "Query": {
+    "QueryAlias": null,
+    "Comment": null,
+    "Parameters": {
+      "@p1": {
+        "Name": "@p1",
+        "Type": "reference"
+      }
+    },
+    "Fields": {
+      "Id": {
+        "FieldAlias": "Id",
+        "IsOutput": true,
+        "GroupByFunction": null,
+        "Field": {
+          "ObjectAlias": "o",
+          "FieldName": "Id"
+        },
+        "Operation": null,
+        "RawExpression": null
+      },
+      "OrderId": {
+        "FieldAlias": "OrderId",
+        "IsOutput": true,
+        "GroupByFunction": null,
+        "Field": {
+          "ObjectAlias": "o",
+          "FieldName": "OrderId"
+        },
+        "Operation": null,
+        "RawExpression": null
+      },
+      "ProductId": {
+        "FieldAlias": "ProductId",
+        "IsOutput": true,
+        "GroupByFunction": null,
+        "Field": {
+          "ObjectAlias": "o",
+          "FieldName": "ProductId"
+        },
+        "Operation": null,
+        "RawExpression": null
+      },
+      "Qty": {
+        "FieldAlias": "Qty",
+        "IsOutput": true,
+        "GroupByFunction": null,
+        "Field": {
+          "ObjectAlias": "o",
+          "FieldName": "Qty"
+        },
+        "Operation": null,
+        "RawExpression": null
+      },
+      "Name": {
+        "FieldAlias": "Name",
+        "IsOutput": true,
+        "GroupByFunction": null,
+        "Field": {
+          "ObjectAlias": "p",
+          "FieldName": "Name"
+        },
+        "Operation": null,
+        "RawExpression": null
+      },
+      "Price": {
+        "FieldAlias": "Price",
+        "IsOutput": true,
+        "GroupByFunction": null,
+        "Field": {
+          "ObjectAlias": "p",
+          "FieldName": "Price"
+        },
+        "Operation": null,
+        "RawExpression": null
+      }
+    },
+    "Tables": {
+      "o": {
+        "ObjectAlias": "o",
+        "TableName": "OrderItem"
+      },
+      "p": {
+        "ObjectAlias": "p",
+        "TableName": "Product"
+      }
+    },
+    "SubQueries": null,
+    "Joins": [
+      {
+        "LeftObjectAlias": "p",
+        "LeftField": "Id",
+        "RightObjectAlias": "o",
+        "RightField": "ProductId",
+        "JoinType": "Inner"
+      }
+    ],
+    "GroupByFields": null,
+    "Having": null,
+    "Where": {
+      "Expression": {
+        "Value": null,
+        "QueryField": null,
+        "Param": null,
+        "Left": {
+          "Value": null,
+          "QueryField": {
+            "FieldAlias": null,
+            "IsOutput": false,
+            "GroupByFunction": null,
+            "Field": {
+              "ObjectAlias": "o",
+              "FieldName": "OrderId"
+            },
+            "Operation": null,
+            "RawExpression": null
+          },
+          "Param": null,
+          "Left": null,
+          "Operator": null,
+          "Right": null
+        },
+        "Operator": "=",
+        "Right": {
+          "Value": null,
+          "QueryField": null,
+          "Param": "@p1",
+          "Left": null,
+          "Operator": null,
+          "Right": null
+        }
+      }
+    }
+  }
+}

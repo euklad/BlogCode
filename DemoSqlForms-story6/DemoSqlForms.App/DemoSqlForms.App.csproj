@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="5.0.1" />
-    <PackageReference Include="Platz.SqlForms" Version="0.2.2" />
+    <PackageReference Include="Platz.SqlForms" Version="0.3.7" />
   </ItemGroup>
 
   <ItemGroup>

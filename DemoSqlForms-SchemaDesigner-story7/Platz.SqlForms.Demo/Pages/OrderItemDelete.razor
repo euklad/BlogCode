@@ -1,0 +1,15 @@
+﻿@page "/OrderItemDelete/{OrderItemId:int}/{OrderId:int}"
+@using Platz.SqlForms.Demo.SchemaForms
+
+<h1>Order Item Delete</h1>
+
+<FormDynamicEditComponent TForm="OrderReadOnlyForm" Id="@OrderId" ReadOnly="true" />
+<FormDynamicEditComponent TForm="OrderItemForm" Id="@OrderItemId" ServiceParameters="new object[] { OrderId }" ForDelete="true"/>
+
+@code {
+    [Parameter]
+    public int OrderItemId { get; set; }
+
+    [Parameter]
+    public int OrderId { get; set; }
+}

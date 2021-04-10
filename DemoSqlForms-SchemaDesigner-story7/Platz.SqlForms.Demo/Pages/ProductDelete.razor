@@ -1,0 +1,12 @@
+﻿@page "/ProductDelete/{Id:int}"
+@using Platz.SqlForms.Demo.SchemaForms
+
+<h1>Product Delete</h1>
+
+<FormDynamicEditComponent TForm="ProductForm" Id="@Id" ForDelete="true"/>
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+}
+

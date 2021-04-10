@@ -1,0 +1,12 @@
+﻿@page "/ProductEdit/{Id:int}"
+@using Platz.SqlForms.Demo.SchemaForms
+
+<h1>Product Edit</h1>
+
+<FormDynamicEditComponent TForm="ProductForm" Id="@Id" />
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+}
+

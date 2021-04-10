@@ -1,0 +1,194 @@
+{
+  "Name": "PlatzDemo",
+  "DbContextName": "PlatzDemoDataContext",
+  "Namespace": "PlatzDemo.SchemaStore",
+  "Title": null,
+  "Type": null,
+  "Comment": null,
+  "Tags": [],
+  "Version": "1.0",
+  "VersionKey": "00000000-0000-0000-0000-000000000000",
+  "Definitions": {
+    "Order": {
+      "Name": "Order",
+      "Type": null,
+      "Comment": null,
+      "Order": 1,
+      "Properties": {
+        "Id": {
+          "Name": "Id",
+          "Type": "int",
+          "Nullable": false,
+          "Comment": null,
+          "MinLength": 0,
+          "MaxLength": null,
+          "Pk": true,
+          "AutoIncrement": true,
+          "Fk": false,
+          "ExternalId": false,
+          "Order": 0,
+          "ForeignKeys": []
+        },
+        "ClientName": {
+          "Name": "ClientName",
+          "Type": "string",
+          "Nullable": false,
+          "Comment": null,
+          "MinLength": 0,
+          "MaxLength": null,
+          "Pk": false,
+          "AutoIncrement": false,
+          "Fk": false,
+          "ExternalId": false,
+          "Order": 1,
+          "ForeignKeys": []
+        },
+        "Created": {
+          "Name": "Created",
+          "Type": "date",
+          "Nullable": false,
+          "Comment": null,
+          "MinLength": 0,
+          "MaxLength": null,
+          "Pk": false,
+          "AutoIncrement": false,
+          "Fk": false,
+          "ExternalId": false,
+          "Order": 2,
+          "ForeignKeys": []
+        }
+      }
+    },
+    "OrderItem": {
+      "Name": "OrderItem",
+      "Type": null,
+      "Comment": null,
+      "Order": 2,
+      "Properties": {
+        "Id": {
+          "Name": "Id",
+          "Type": "int",
+          "Nullable": false,
+          "Comment": null,
+          "MinLength": 0,
+          "MaxLength": null,
+          "Pk": true,
+          "AutoIncrement": true,
+          "Fk": false,
+          "ExternalId": false,
+          "Order": 0,
+          "ForeignKeys": []
+        },
+        "OrderId": {
+          "Name": "OrderId",
+          "Type": "reference",
+          "Nullable": false,
+          "Comment": null,
+          "MinLength": 0,
+          "MaxLength": null,
+          "Pk": false,
+          "AutoIncrement": false,
+          "Fk": true,
+          "ExternalId": false,
+          "Order": 1,
+          "ForeignKeys": [
+            {
+              "DefinitionName": "Order",
+              "PropertyName": "Id",
+              "Type": "int",
+              "CompositePropertyNames": null
+            }
+          ]
+        },
+        "ProductId": {
+          "Name": "ProductId",
+          "Type": "reference",
+          "Nullable": false,
+          "Comment": null,
+          "MinLength": 0,
+          "MaxLength": null,
+          "Pk": false,
+          "AutoIncrement": false,
+          "Fk": true,
+          "ExternalId": false,
+          "Order": 2,
+          "ForeignKeys": [
+            {
+              "DefinitionName": "Product",
+              "PropertyName": "Id",
+              "Type": "int",
+              "CompositePropertyNames": null
+            }
+          ]
+        },
+        "Qty": {
+          "Name": "Qty",
+          "Type": "int",
+          "Nullable": false,
+          "Comment": null,
+          "MinLength": 0,
+          "MaxLength": null,
+          "Pk": false,
+          "AutoIncrement": false,
+          "Fk": false,
+          "ExternalId": false,
+          "Order": 3,
+          "ForeignKeys": []
+        }
+      }
+    },
+    "Product": {
+      "Name": "Product",
+      "Type": null,
+      "Comment": null,
+      "Order": 0,
+      "Properties": {
+        "Id": {
+          "Name": "Id",
+          "Type": "int",
+          "Nullable": false,
+          "Comment": null,
+          "MinLength": 0,
+          "MaxLength": null,
+          "Pk": true,
+          "AutoIncrement": true,
+          "Fk": false,
+          "ExternalId": false,
+          "Order": 0,
+          "ForeignKeys": []
+        },
+        "Name": {
+          "Name": "Name",
+          "Type": "string",
+          "Nullable": false,
+          "Comment": null,
+          "MinLength": 0,
+          "MaxLength": null,
+          "Pk": false,
+          "AutoIncrement": false,
+          "Fk": false,
+          "ExternalId": false,
+          "Order": 1,
+          "ForeignKeys": []
+        },
+        "Price": {
+          "Name": "Price",
+          "Type": "decimal",
+          "Nullable": false,
+          "Comment": null,
+          "MinLength": 0,
+          "MaxLength": null,
+          "Pk": false,
+          "AutoIncrement": false,
+          "Fk": false,
+          "ExternalId": false,
+          "Order": 2,
+          "ForeignKeys": []
+        }
+      }
+    }
+  },
+  "Settings": {
+    "UseIntId": "True"
+  }
+}
