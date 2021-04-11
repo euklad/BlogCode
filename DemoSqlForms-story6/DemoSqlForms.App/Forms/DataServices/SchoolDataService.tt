@@ -8,6 +8,7 @@
 <#@ import namespace="System.IO" #>
 <#@ output extension=".cs" #>
 <#@ import namespace="Platz.ObjectBuilder" #>
+<#@ import namespace="Platz.SqlForms" #>
 <# // ================================================================ Set JsonStorePath here, relative to solution folder ================================== #>
 <#      var JsonStorePath = @"DemoSqlForms.ObjectBuilder.App\StoreData"; #>
 <# // ======================================================================================================================================================= #>
