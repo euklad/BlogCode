@@ -1,0 +1,25 @@
+﻿@inherits LayoutComponentBase
+
+<MudLayout>
+	<AppBar OnSidebarToggled="ToggleSidebar" OnThemeToggled="ToggleTheme" />
+
+	<NavMenu SideBarOpen="_sidebarOpen" />
+
+	<MudMainContent Class="pt-16 px-16">
+		<MudContainer Class="mt-6">
+			@Body
+		</MudContainer>
+	</MudMainContent>
+</MudLayout>
+
+<MudThemeProvider Theme="_currentTheme" />
+
+@code {
+	private MudTheme _currentTheme = new MudTheme();
+	private bool _sidebarOpen = true;
+
+
+	private void ToggleTheme(MudTheme changedTheme) => _currentTheme = changedTheme;
+
+	private void ToggleSidebar() => _sidebarOpen = !_sidebarOpen;
+}

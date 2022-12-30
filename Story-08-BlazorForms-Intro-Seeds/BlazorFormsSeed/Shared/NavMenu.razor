@@ -1,0 +1,15 @@
+﻿<MudDrawer @bind-Open="SideBarOpen" Elevation="1">
+    <MudDrawerHeader>
+        <MudImage Elevation="25" Style="background-color: black;" Class="rounded-lg" Width="48" Height="48" Src="assets/blackAsset-2@4x.png" />
+        <MudText Typo="Typo.h5" Color="Color.Primary" Style="margin-top:10px; margin-left:15px;">Blazor Forms</MudText>
+    </MudDrawerHeader>
+    <MudNavMenu>
+        <MudNavLink Href="/" Match="NavLinkMatch.All" Icon="@Icons.Filled.Home">Home</MudNavLink>
+        <MudNavLink Href="/sample" Icon="@Icons.Filled.Storage">Sample</MudNavLink>
+    </MudNavMenu>
+</MudDrawer>
+
+@code {
+    [Parameter]
+    public bool SideBarOpen { get; set; }
+}

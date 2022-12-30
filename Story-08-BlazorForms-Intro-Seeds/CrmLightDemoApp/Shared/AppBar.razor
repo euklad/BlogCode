@@ -1,0 +1,13 @@
+﻿<MudAppBar Elevation="3">
+	<MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" 
+				   OnClick="async () => await OnSidebarToggled.InvokeAsync()" />
+	<MudSpacer />
+	@if (_isLightMode)
+	{
+		<MudIconButton Icon="@Icons.Material.Filled.Brightness4" Color="Color.Inherit" OnClick="ToggleTheme" />
+	}
+	else
+	{
+		<MudIconButton Icon="@Icons.Material.Filled.Brightness5" Color="Color.Inherit" OnClick="ToggleTheme" />
+	}
+</MudAppBar>

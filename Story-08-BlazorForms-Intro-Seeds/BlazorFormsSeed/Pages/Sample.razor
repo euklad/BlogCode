@@ -1,0 +1,7 @@
+﻿@page "/sample"
+
+<FlowEditForm FlowName="@typeof(BlazorFormsSeed.Flows.SampleFlow).FullName" Options="Options" NavigationSuccess="/" />
+
+@code {
+    EditFormOptions Options = new EditFormOptions { MudBlazorProvidersDefined = true, Variant=Variant.Filled };
+}
