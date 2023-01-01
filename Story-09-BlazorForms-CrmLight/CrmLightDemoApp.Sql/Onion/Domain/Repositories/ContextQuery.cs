@@ -3,7 +3,6 @@
     public class ContextQuery<T> : IDisposable
         where T : class 
     {
-        private readonly IQueryable<T> _query;
         protected readonly IDisposable _context;
 
         public IQueryable<T> Query { get; set; }

@@ -69,6 +69,4 @@ namespace CrmLightDemoApp.Onion.Infrastructure
             return await query.Query.ToListAsync();
         }
     }
-
-    
 }
