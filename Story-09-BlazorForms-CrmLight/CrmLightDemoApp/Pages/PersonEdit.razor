@@ -1,0 +1,11 @@
+﻿@page "/person-edit/{pk}"
+
+<FlowEditForm FlowName="@typeof(CrmLightDemoApp.Onion.Services.Flow.PersonEditFlow).FullName" Pk="@Pk"
+              Options="GlobalSettings.EditFormOptions" NavigationSuccess="/person-list" />
+
+
+@code {
+    [Parameter]
+    public string Pk { get; set; }
+
+}
