@@ -1,0 +1,11 @@
+﻿@page "/person-company-list-type"
+
+<FlowEditForm FlowName="@typeof(CrmLightDemoApp.Onion.Services.Flow.PersonCompanyLinkTypeEditFlow).FullName"
+              Options="GlobalSettings.EditFormOptions" NavigationSuccess="/" />
+
+
+@code {
+    [Parameter]
+    public string Pk { get; set; }
+
+}

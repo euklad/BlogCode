@@ -1,0 +1,19 @@
+﻿<MudDrawer @bind-Open="SideBarOpen" Elevation="1">
+    <MudDrawerHeader>
+        <MudImage Elevation="25" Style="background-color: black;" Class="rounded-lg" Width="48" Height="48" Src="assets/blackAsset-2@4x.png" />
+        <MudText Typo="Typo.h5" Color="Color.Primary" Style="margin-top:10px; margin-left:15px;">Crm Light</MudText>
+    </MudDrawerHeader>
+    <MudNavMenu>
+        <MudNavLink Href="/" Match="NavLinkMatch.All" Icon="@Icons.Filled.Home">Home</MudNavLink>
+        <MudNavLink Href="/person-list" Icon="@Icons.Filled.Person">People</MudNavLink>
+        <MudNavLink Href="/company-list" Icon="@Icons.Filled.Factory">Company</MudNavLink>
+        <MudNavGroup Title="Static data" Icon="@Icons.Filled.DashboardCustomize" Expanded="true">
+            <MudNavLink Href="/person-company-list-type" Icon="@Icons.Filled.Work">Person Company Type</MudNavLink>
+        </MudNavGroup>
+    </MudNavMenu>
+</MudDrawer>
+
+@code {
+    [Parameter]
+    public bool SideBarOpen { get; set; }
+}
