@@ -15,8 +15,8 @@ To demonstrate what which component means and how it looks like it is better to 
 
 This project is created using Visual Studio Blazor Server App template, and then we added NuGet packages:
 
-•	BlazorForms 0.7.0
-•	BlazorForms.Rendering.MudBlazorUI 0.7.0
+- BlazorForms 0.7.0
+- BlazorForms.Rendering.MudBlazorUI 0.7.0
 
 It also references indirectly to MudBlazor 6.1.5 – open-source framework implementing Material Design for Blazor.
 ![image](https://user-images.githubusercontent.com/6533278/210188312-29ec29f7-ad52-4480-ade3-abe4cbced6c3.png)
