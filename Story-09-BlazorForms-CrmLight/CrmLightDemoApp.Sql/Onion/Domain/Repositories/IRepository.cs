@@ -1,4 +1,6 @@
-﻿namespace CrmLightDemoApp.Onion.Domain.Repositories
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace CrmLightDemoApp.Onion.Domain.Repositories
 {
     public interface IRepository<T>
         where T : class
@@ -12,6 +14,7 @@
         Task<List<T>> GetListByIdsAsync(IEnumerable<int> ids);
 
         ContextQuery<T> GetContextQuery();
+        ContextQuery<T> GetContextQuery(DbContext context);
         Task<List<T>> RunContextQueryAsync(ContextQuery<T> ctx);
     }
 }

@@ -19,6 +19,39 @@ namespace CrmLightDemoApp.Onion.Infrastructure
             _personCompanyLinkTypeRepository = personCompanyLinkTypeRepository;
         }
 
+        public async Task<List<PersonCompanyLinkDetails>> RunDetailsContextQueryAsync(ContextQuery<PersonCompanyLinkDetails> query)
+        {
+            return await query.Query.ToListAsync();
+        }
+
+        public ContextQuery<PersonCompanyLinkDetails> GetDetailsContextQuery()
+        {
+            var cq = _companyRepository.GetContextQuery();
+            var pq = _personRepository.GetContextQuery(cq._context);
+
+            var ccq = GetContextQuery(cq._context);
+
+            var q = from cc in ccq.Query
+                    join c in cq.Query on cc.CompanyId equals c.Id into cJoin
+                    from subCompany in cJoin.DefaultIfEmpty()
+                    join p in pq.Query on cc.PersonId equals p.Id into pJoin
+                    from subPerson in pJoin.DefaultIfEmpty()
+                    select new PersonCompanyLinkDetails
+                    {
+                        Id = cc.Id,
+                        CompanyId = cc.CompanyId,
+                        PersonId = cc.PersonId,
+                        LinkTypeId = cc.LinkTypeId,
+                        Deleted = cc.Deleted,
+                        CompanyName = subCompany.Name,
+                        PersonFirstName = subPerson.FirstName,
+                        PersonLastName = subPerson.LastName,
+                        PersonFullName = $"{subPerson.FirstName} {subPerson.LastName}",
+                    };
+
+            return new ContextQuery<PersonCompanyLinkDetails>(cq._context, q);
+        }
+
         public async Task<List<PersonCompanyLinkDetails>> GetByPersonIdAsync(int personId)
         {
             using var db = new CrmContext();

@@ -1,21 +1,30 @@
-﻿namespace CrmLightDemoApp.Onion.Domain.Repositories
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace CrmLightDemoApp.Onion.Domain.Repositories
 {
     public class ContextQuery<T> : IDisposable
         where T : class 
     {
-        protected readonly IDisposable _context;
+        internal readonly DbContext _context;
+        internal readonly IEnumerable<IDisposable> _moreContexts;
 
         public IQueryable<T> Query { get; set; }
 
-        public ContextQuery(IDisposable context, IQueryable<T> query)
+        public ContextQuery(DbContext context, IQueryable<T> query, params IDisposable[] moreContexts)
         {
             _context = context;
             Query = query;
+            _moreContexts = moreContexts;
         }
 
         public void Dispose()
         {
             _context?.Dispose();
+
+            if (_moreContexts != null)
+            {
+                _moreContexts.ToList().ForEach(x => x.Dispose());
+            }
         }
     }
 }

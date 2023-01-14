@@ -4,5 +4,7 @@
     {
         Task<List<PersonCompanyLinkDetails>> GetByPersonIdAsync(int personId);
         Task<List<PersonCompanyLinkDetails>> GetByCompanyIdAsync(int companyId);
+        ContextQuery<PersonCompanyLinkDetails> GetDetailsContextQuery();
+        Task<List<PersonCompanyLinkDetails>> RunDetailsContextQueryAsync(ContextQuery<PersonCompanyLinkDetails> query);
     }
 }

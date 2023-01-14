@@ -64,7 +64,13 @@ namespace CrmLightDemoApp.Onion.Infrastructure
             return new ContextQuery<T>(db, db.Set<T>().Where(x => !x.Deleted));
         }
 
-        public async Task<List<T>> RunContextQueryAsync(ContextQuery<T> query)
+        public ContextQuery<T> GetContextQuery(DbContext context)
+        {
+            var db = context as CrmContext;
+            return new ContextQuery<T>(db, db.Set<T>().Where(x => !x.Deleted));
+        }
+
+    public async Task<List<T>> RunContextQueryAsync(ContextQuery<T> query)
         {
             return await query.Query.ToListAsync();
         }
