@@ -1,0 +1,20 @@
+﻿@page "/static-type-edit-internal/{EntityType}"
+
+@inject BlazorForms.Flows.Definitions.IFlowParser _parser
+
+<FlowEditForm FlowName="@GetGenericFlowType().FullName"
+              Options="GlobalSettings.EditFormOptions" NavigationSuccess="/" />
+
+
+@code {
+    [Parameter]
+    public string EntityType { get; set; }
+
+    private Type GetGenericFlowType()
+    {
+        var type = _parser.GetTypeByName(EntityType.Replace("-", "."));
+        var generic = typeof(CrmLightDemoApp.Onion.Services.Flow.StaticTypeEditFlow<>);
+        var constructed = generic.MakeGenericType(type);
+        return constructed;
+    }
+}

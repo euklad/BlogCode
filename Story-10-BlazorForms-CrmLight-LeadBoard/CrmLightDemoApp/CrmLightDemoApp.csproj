@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+
+	  <AssemblyVersion>0.8.0</AssemblyVersion>
+	  <PackageVersion>0.8.0</PackageVersion>
+	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	  <Copyright>Pro Coders PTY LTD</Copyright>
+	  <Description>Blazor Forms Crm Light Demo Application</Description>
+	  <Company>Pro Coders PTY LTD</Company>
+	  <PackageTags>crm;light;blazor;flow;dynamic;form;forms;rule;framework</PackageTags>
+	  <Authors>Pro Coders PTY LTD</Authors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BlazorForms" Version="0.8.1" />
+    <PackageReference Include="BlazorForms.Rendering.MudBlazorUI" Version="0.8.0" />
+  </ItemGroup>
+
+</Project>

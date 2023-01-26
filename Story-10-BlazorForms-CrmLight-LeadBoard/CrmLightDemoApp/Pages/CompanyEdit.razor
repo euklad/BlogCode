@@ -1,0 +1,11 @@
+﻿@page "/company-edit/{pk}"
+
+<FlowEditForm FlowName="@typeof(CrmLightDemoApp.Onion.Services.Flow.CompanyEditFlow).FullName" Pk="@Pk"
+              Options="GlobalSettings.EditFormOptions" NavigationSuccess="/company-list" />
+
+
+@code {
+    [Parameter]
+    public string Pk { get; set; }
+
+}

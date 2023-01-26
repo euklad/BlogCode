@@ -1,0 +1,107 @@
+﻿@page "/lead-board"
+@using BlazorForms.Rendering.Interfaces
+@using BlazorForms.Flows.Definitions
+@using BlazorForms.Rendering.State
+@using BlazorForms.Rendering.Model
+@using BlazorForms.Rendering.MudBlazorUI.Components
+@using BlazorForms.Shared;
+@using CrmLightDemoApp.Onion.Domain
+@using CrmLightDemoApp.Onion.Services.Abstractions;
+@using CrmLightDemoApp.Onion.Services.Flow.LeadBoard
+@using CrmLightDemoApp.Onion.Services.Model;
+@using MudBlazor
+
+@inject IBoardService _boardService
+
+<FlowBoard TFlow=LeadBoardStateFlow TItem=LeadBoardCardModel Caption="Lead Board" Items=@_items ItemsChanged=@ItemsChanged
+           CardTitleBackColor="lightblue" Options="GlobalSettings.BoardFormOptions" EditFormOptions="GlobalSettings.EditFormOptions">
+    <CardAvatar>
+        <MudIcon Icon="@Icons.Material.TwoTone.Savings" />
+    </CardAvatar>
+    <CardTitle>
+        <MudText Typo="Typo.body1" Color="Color.Info">@context.Title</MudText>
+    </CardTitle>
+    <CardBody>
+        <MudText Typo="Typo.body2">@context.Description</MudText>
+        <MudText Typo="Typo.caption" Color="Color.Primary">@context.SalesPersonFullName</MudText>
+    </CardBody>
+</FlowBoard>
+
+@code {
+    private List<LeadBoardCardModel> _items = new();
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await LoadItems();
+    }
+
+    private async Task LoadItems()
+    {
+        _items = await _boardService.GetBoardCardsAsync();
+    }
+
+    private async Task ItemsChanged(List<BoardCardChangedArgs<LeadBoardCardModel>> list)
+    {
+        // you can save in transaction to make sure that changes are saved all or nothing
+        //_boardService.BeginUnitOfWork();
+
+        var creating = list.Where(x => x.Type == ItemChangedType.Creating).ToList();
+        creating.ForEach(async a => await _boardService.CreatingBoardCardAsync(a.Item));
+
+        var deleted = list.Where(x => x.Type == ItemChangedType.Deleted).ToList();
+        deleted.ForEach(async a => await _boardService.DeleteBoardCardAsync(a.Item));
+
+        var added = list.Where(x => x.Type == ItemChangedType.Added).ToList();
+        added.ForEach(async a => await _boardService.CreateBoardCardAsync(a.Item));
+
+        // if card moved to Won state - create ClientCompany record
+        var closing = list.FirstOrDefault(x => x.ChangedToTargetState("Won"));
+
+        if (closing != null)
+        {
+            await CreateClientRecordAsync(closing.Item);
+        }
+
+        // save all changed board cards
+        var changed = list.Where(x => x.Type == ItemChangedType.Changed 
+            || x.Type == ItemChangedType.State
+            || x.Type == ItemChangedType.Order).ToList();
+
+        changed.ForEach(async a => await _boardService.UpdateBoardCardAsync(a.Item));
+
+        //_boardService.CommitUnitOfWork();
+
+        await LoadItems();
+        StateHasChanged();
+    }
+
+    private async Task CreateClientRecordAsync(LeadBoardCardModel item)
+    {
+        // save new company if it is new
+        if (item.IsNewCompany && item.Company.Id == 0)
+        {
+            item.Company.Id = await _boardService.CreateCompanyAsync(item.Company);
+            item.RelatedCompanyId = item.Company.Id;
+        }
+
+        // save Client Company
+        item.ClientCompany.Id = item.ClientCompanyId ?? 0;
+        item.ClientCompany.CompanyId = item.RelatedCompanyId.Value;
+        var existing = await _boardService.FindClientCompanyAsync(item.ClientCompany.CompanyId);
+
+        if (existing != null)
+        {
+            // use existing ClientCompany, don't create duplicate
+            item.ClientCompany.Id = existing.Id;
+        }
+
+        if (item.ClientCompany.Id > 0)
+        {
+            await _boardService.UpdateClientCompanyAsync(item.ClientCompany);
+        }
+        else
+        {
+            item.ClientCompanyId = await _boardService.CreateClientCompanyAsync(item.ClientCompany);
+        }
+    }
+}
