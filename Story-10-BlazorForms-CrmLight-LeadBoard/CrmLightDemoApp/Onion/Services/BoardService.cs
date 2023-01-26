@@ -4,7 +4,6 @@ using CrmLightDemoApp.Onion.Domain.Repositories;
 using CrmLightDemoApp.Onion.Infrastructure;
 using CrmLightDemoApp.Onion.Services.Abstractions;
 using CrmLightDemoApp.Onion.Services.Model;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace CrmLightDemoApp.Onion.Services
 {

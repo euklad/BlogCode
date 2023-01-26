@@ -11,8 +11,6 @@
 @using CrmLightDemoApp.Onion.Services.Model;
 @using MudBlazor
 
-@inject IBoardService _boardService
-
 <FlowBoard TFlow=LeadBoardStateFlow TItem=LeadBoardCardModel Caption="Lead Board" Items=@_items ItemsChanged=@ItemsChanged
            CardTitleBackColor="lightblue" Options="GlobalSettings.BoardFormOptions" EditFormOptions="GlobalSettings.EditFormOptions">
     <CardAvatar>
@@ -28,6 +26,8 @@
 </FlowBoard>
 
 @code {
+    @inject IBoardService _boardService
+
     private List<LeadBoardCardModel> _items = new();
 
     protected override async Task OnParametersSetAsync()
@@ -77,13 +77,6 @@
 
     private async Task CreateClientRecordAsync(LeadBoardCardModel item)
     {
-        // save new company if it is new
-        if (item.IsNewCompany && item.Company.Id == 0)
-        {
-            item.Company.Id = await _boardService.CreateCompanyAsync(item.Company);
-            item.RelatedCompanyId = item.Company.Id;
-        }
-
         // save Client Company
         item.ClientCompany.Id = item.ClientCompanyId ?? 0;
         item.ClientCompany.CompanyId = item.RelatedCompanyId.Value;
