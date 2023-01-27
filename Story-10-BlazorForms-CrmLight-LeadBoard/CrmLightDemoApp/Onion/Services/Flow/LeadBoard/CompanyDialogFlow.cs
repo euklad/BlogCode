@@ -46,12 +46,13 @@ namespace CrmLightDemoApp.Onion.Services.Flow.LeadBoard
     {
         protected override void Define(FormEntityTypeBuilder<CompanyModel> f)
         {
-            f.DisplayName = "Add new company";
+            f.DisplayName = "Company Edit";
+            f.Confirm(ConfirmType.ChangesWillBeLost, "If you leave before saving, your changes will be lost.", ConfirmButtons.OkCancel);
             f.Property(p => p.Name).Label("Name").IsRequired();
             f.Property(p => p.RegistrationNumber).Label("Reg. No.");
             f.Property(p => p.EstablishedDate).Label("Established date");
-            f.Button(ButtonActionTypes.Cancel, "Cancel");
             f.Button(ButtonActionTypes.Submit, "Save");
+            f.Button(ButtonActionTypes.Cancel, "Cancel");
         }
     }
 }

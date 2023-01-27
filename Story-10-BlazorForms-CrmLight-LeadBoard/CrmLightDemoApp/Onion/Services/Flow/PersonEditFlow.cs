@@ -100,8 +100,8 @@ namespace CrmLightDemoApp.Onion.Services.Flow
             f.Property(p => p.Phone);
             f.Property(p => p.Email);
 
-            f.Button(ButtonActionTypes.Cancel, "Cancel");
             f.Button(ButtonActionTypes.Submit, "Save");
+            f.Button(ButtonActionTypes.Cancel, "Cancel");
         }
     }
 }
