@@ -115,8 +115,8 @@ namespace CrmLightDemoApp.Onion.Services.Flow
             f.Property(p => p.AlternativeClientManagerId).DropdownSearch(p => p.AllPersons, m => m.Id, m => m.FullName).Label("Alternative manager");
             f.Property(p => p.StartContractDate).Label("Contract date").Format("dd/MM/yyyy");
 
-            f.Button(ButtonActionTypes.Cancel, "Cancel");
             f.Button(ButtonActionTypes.Submit, "Save");
+            f.Button(ButtonActionTypes.Cancel, "Cancel");
         }
     }
 

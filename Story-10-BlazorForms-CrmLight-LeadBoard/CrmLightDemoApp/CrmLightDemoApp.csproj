@@ -5,8 +5,8 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
 
-	  <AssemblyVersion>0.8.0</AssemblyVersion>
-	  <PackageVersion>0.8.0</PackageVersion>
+	  <AssemblyVersion>0.8.2</AssemblyVersion>
+	  <PackageVersion>0.8.2</PackageVersion>
 	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
 	  <Copyright>Pro Coders PTY LTD</Copyright>
 	  <Description>Blazor Forms Crm Light Demo Application</Description>
@@ -16,8 +16,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BlazorForms" Version="0.8.1" />
-    <PackageReference Include="BlazorForms.Rendering.MudBlazorUI" Version="0.8.1" />
+    <PackageReference Include="BlazorForms" Version="0.8.2" />
+    <PackageReference Include="BlazorForms.Rendering.MudBlazorUI" Version="0.8.2" />
   </ItemGroup>
 
 </Project>
