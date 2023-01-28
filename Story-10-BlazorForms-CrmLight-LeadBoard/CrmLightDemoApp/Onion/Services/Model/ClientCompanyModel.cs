@@ -7,10 +7,6 @@ namespace CrmLightDemoApp.Onion.Services.Model
 {
     public class ClientCompanyModel : ClientCompanyDetails, IFlowModel
     {
-        //public Company Company { get; set; }
-        //public Person Manager { get; set; }
-        //public Person AlternativeManager { get; set; }
-
         public virtual string? ManagerFullName { get; set; }
         public virtual string? AlternativeManagerFullName { get; set; }
 

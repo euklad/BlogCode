@@ -82,10 +82,6 @@ namespace CrmLightDemoApp.Onion.Services.Flow
                 }).OrderBy(x => x.FullName).ToList();
 
             Model.AllPersons = persons;
-            //Model.PersonDictionary = persons.ToDictionary(x => x.FullName, x => x);
-
-            // ToDo: remove it after move to Autocomplete control
-            //Model.AllPersons.Insert(0, new PersonModel { Id = 0, FullName = "" });
         }
 
         public async Task SaveData()
@@ -109,10 +105,6 @@ namespace CrmLightDemoApp.Onion.Services.Flow
 
             foreach (var item in Model.PersonCompanyLinks)
             {
-                // we use autocomplete control, so need to resolve id by name
-                //item.PersonId = Model.PersonDictionary[item.PersonFullName].Id;
-                //item.PersonId = Model.AllPersons.First(p => p.FullName == item.PersonFullName).Id;
-
                 if (item.Id == 0)
                 {
                     item.CompanyId = Model.Id;
@@ -175,13 +167,6 @@ namespace CrmLightDemoApp.Onion.Services.Flow
 
                 e.PropertyRoot(p => p.PersonId).DropdownSearch(e => e.AllPersons, m => m.Id, m => m.FullName).IsRequired().Label("Person")
                     .Rule(typeof(FormCompanyEdit_ItemChangedRule), FormRuleTriggers.ItemChanged);
-
-                //e.PropertyRoot(p => p.PersonFullName).EditWithOptions(e => e.AllPersons, m => m.FullName).IsRequired().Label("Person")
-                //    .Rule(typeof(FormCompanyEdit_ItemChangedRule), FormRuleTriggers.ItemChanged);
-                //.Rule(typeof(FormCompanyEdit_CheckNameRule), FormRuleTriggers.Submit);
-
-                //e.PropertyRoot(p => p.PersonId).Dropdown(p => p.AllPersons, m => m.Id, m => m.FullName).IsRequired().Label("Person")
-                //    .Rule(typeof(FormCompanyEdit_ItemChangedRule), FormRuleTriggers.ItemChanged);
             }).Confirm(ConfirmType.DeleteItem, "Delete this association?", ConfirmButtons.YesNo);
 
             f.Button(ButtonActionTypes.Submit, "Save");
