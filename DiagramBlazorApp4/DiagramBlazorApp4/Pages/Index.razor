@@ -1,0 +1,28 @@
+﻿@page "/"
+
+@using BlazorForms.Rendering.Flows
+@inject FlowDiagramViewModel _vm
+
+@((MarkupString)_svg)
+
+@code {
+    [Parameter]
+    public string FlowName { get; set; }
+
+    [Parameter]
+    public Type FlowType { get; set; }
+
+    private string _svg = "<p class='markup'>This is a <em>markup string</em>.</p>";
+
+    protected override async Task OnParametersSetAsync()
+    {
+        // We load form once, and every time when parameters changed
+        await Reload();
+        await base.OnParametersSetAsync();
+    }
+
+    async Task Reload()
+    {
+        _svg = await _vm.GetFlowDiagramSvg(FlowName, FlowType);
+    }
+}
