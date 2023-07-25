@@ -62,6 +62,8 @@ namespace CrmLightDemoApp.Onion.Infrastructure
         {
             var db = new CrmContext();
             return new ContextQuery<T>(db, db.Set<T>().Where(x => !x.Deleted));
+
+            var qq = db.Company.Include(P => P.RefPersonCompanyLink).ThenInclude(l => l.Person);
         }
 
         public async Task<List<T>> RunContextQueryAsync(ContextQuery<T> query)

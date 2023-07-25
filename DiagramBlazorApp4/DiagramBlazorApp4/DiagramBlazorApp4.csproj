@@ -11,11 +11,15 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
 
-	<PackageReference Include="AutomaticGraphLayout.Drawing" Version="1.1.12" />
+	<!--<PackageReference Include="AutomaticGraphLayout.Drawing" Version="1.1.12" />-->
 
 	<PackageReference Include="Microsoft.Maui.Graphics.Skia" Version="6.0.501" />
     <PackageReference Include="SkiaSharp" Version="2.88.3" />
     <PackageReference Include="SkiaSharp.NativeAssets.Linux.NoDependencies" Version="2.88.3" />	  <PackageReference Include="SkiaSharp" Version="2.88.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Drawing\AutomaticGraphLayout.Drawing.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -7,5 +7,8 @@
         public virtual int CompanyId { get; set; }
         public virtual int LinkTypeId { get; set; }
         public virtual bool Deleted { get; set; }
+
+        public virtual Person Person { get; set; }
+        public virtual Company Company { get; set; }
     }
 }
