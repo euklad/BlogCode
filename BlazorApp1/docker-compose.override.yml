@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  blazorapp1:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "8080:80"
