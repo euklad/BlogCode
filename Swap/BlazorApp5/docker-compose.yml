@@ -1,0 +1,33 @@
+version: '3.4'
+
+networks:
+  demoblazorapp:
+
+services:
+  demoappdb:
+    container_name: appdb3
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    ports:
+      - 8002:1433
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=password@12345#
+    networks:
+      - demoblazorapp
+  blazorapp5:
+    container_name: blazor-app-5
+    image: ${DOCKER_REGISTRY-}blazorapp5
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8088:80"
+    depends_on:
+      - demoappdb
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - DB_HOST=demoappdb
+      - DB_NAME=Demoblazorapp
+      - DB_SA_PASSWORD=password@12345#
+    networks:
+      - demoblazorapp
