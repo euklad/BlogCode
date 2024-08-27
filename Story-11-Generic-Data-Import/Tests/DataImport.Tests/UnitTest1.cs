@@ -18,6 +18,8 @@ public class UnitTest1
         Assert.NotNull(model);
         Assert.Equal(3, model.Customers.Count);
         Assert.Equal("C00006", model.Customers[0].ExternalId);
+        Assert.Empty(model.Products);
+        Assert.Empty(model.Purchases);
     }
 
     [Fact]

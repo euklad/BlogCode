@@ -7,7 +7,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataImport.Application", "A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataImport.Domain", "Domain\DataImport.Domain\DataImport.Domain.csproj", "{9FCB65A1-217F-4EFD-8C39-6C83DE7B9BF8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataImport.Tests", "Tests\DataImport.Tests\DataImport.Tests.csproj", "{4157D534-73DE-46C8-8C08-4C5A90E2E285}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataImport.Tests", "Tests\DataImport.Tests\DataImport.Tests.csproj", "{4157D534-73DE-46C8-8C08-4C5A90E2E285}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataImport.Infrastructure", "Infrastructure\DataImport.Infrastructure\DataImport.Infrastructure.csproj", "{A38ABFB9-7E1A-4615-B15B-A40F461BBEB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataImport.Console", "Console\DataImport.Console\DataImport.Console.csproj", "{DBE607CA-5940-4014-8CA6-B40BDA344E74}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BBF2352C-C987-4772-88C8-15D7895884E2}"
+	ProjectSection(SolutionItems) = preProject
+		readme.md = readme.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +36,14 @@ Global
 		{4157D534-73DE-46C8-8C08-4C5A90E2E285}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4157D534-73DE-46C8-8C08-4C5A90E2E285}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4157D534-73DE-46C8-8C08-4C5A90E2E285}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A38ABFB9-7E1A-4615-B15B-A40F461BBEB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A38ABFB9-7E1A-4615-B15B-A40F461BBEB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A38ABFB9-7E1A-4615-B15B-A40F461BBEB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A38ABFB9-7E1A-4615-B15B-A40F461BBEB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBE607CA-5940-4014-8CA6-B40BDA344E74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBE607CA-5940-4014-8CA6-B40BDA344E74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBE607CA-5940-4014-8CA6-B40BDA344E74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBE607CA-5940-4014-8CA6-B40BDA344E74}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

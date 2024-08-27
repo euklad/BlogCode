@@ -20,9 +20,9 @@ public class DataImporter
             });
     }
 
-    public ImportModel ReadModelFromFiles(List<string> fileList, MappingConfig config)
+    public DataSnapshotModel ReadModelFromFiles(List<string> fileList, MappingConfig config)
     {
-        var model = new ImportModel();
+        var model = new DataSnapshotModel();
 
         foreach (var filePath in fileList)
         {
@@ -39,30 +39,30 @@ public class DataImporter
         return model;
     }
 
-    private void ImportFileLine(ImportModel model, MappingConfig config, string filePath, string[] cells)
+    private void ImportFileLine(DataSnapshotModel model, MappingConfig config, string filePath, string[] cells)
     {
         var fileName = Path.GetFileName(filePath);
         var mappings = config.FileMappings[fileName];
-        var record = new ImportModelRecord();
+        var target = new DataLineModel();
 
         // iterate through mappings and populate record values from cells
         foreach (var mapping in mappings)
         {
-            _navigator.SetValue(record, mapping.JsonPath, cells[mapping.Position]);
+            _navigator.SetValue(target, mapping.JsonPath, cells[mapping.Position]);
         }
 
         // add to model only those entities that have at least ExternalId updated  
-        if (record.Customer.ExternalId != null)
+        if (target.Customer.ExternalId != null)
         {
-            model.Customers.Add(record.Customer);
+            model.Customers.Add(target.Customer);
         }
-        if (record.Product.ExternalId != null)
+        if (target.Product.ExternalId != null)
         {
-            model.Products.Add(record.Product);
+            model.Products.Add(target.Product);
         }
-        if (record.Purchase.ExternalId != null)
+        if (target.Purchase.ExternalId != null)
         {
-            model.Purchases.Add(record.Purchase);
+            model.Purchases.Add(target.Purchase);
         }
     }
 }

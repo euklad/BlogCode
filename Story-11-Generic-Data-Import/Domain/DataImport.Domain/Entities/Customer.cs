@@ -18,4 +18,5 @@ public class Customer
     public string? Mobile { get; set; }
     public string? Email { get; set; }
 
+    public ICollection<Purchase>? PurchaseLists { get; }
 }
