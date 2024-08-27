@@ -55,6 +55,8 @@ namespace DataImport.Infrastructure.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ExternalId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CustomerExternalId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ProductExternalId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     TotalAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
                     PeriodStartDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     PeriodEndDate = table.Column<DateTime>(type: "datetime2", nullable: true),

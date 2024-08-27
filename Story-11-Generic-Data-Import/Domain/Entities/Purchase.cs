@@ -10,6 +10,8 @@ public class Purchase
 {
     public int Id { get; set; }
     public string? ExternalId { get; set; }
+    public string? CustomerExternalId { get; set; }
+    public string? ProductExternalId { get; set; }
     public decimal? TotalAmount { get; set; }
     public DateTime? PeriodStartDate { get; set; }
     public DateTime? PeriodEndDate { get; set; }

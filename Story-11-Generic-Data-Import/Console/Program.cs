@@ -23,7 +23,8 @@ class Program
             })
             .ConfigureServices(services =>
             {
-                services.AddDbContextFactory<MyDbContext>(options => options.UseSqlServer());
+                //services.AddDbContextFactory<MyDbContext>(options => options.UseSqlServer(), lifetime: ServiceLifetime.Singleton);
+                services.AddDbContext<MyDbContext>(options => options.UseSqlServer(), contextLifetime: ServiceLifetime.Singleton);
                 services.AddSingleton<IDataAccessService, DataAccessService>();
             })
             .Build();
