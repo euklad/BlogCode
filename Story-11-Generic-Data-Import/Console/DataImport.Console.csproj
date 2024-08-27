@@ -12,8 +12,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="..\Tests\TestData\TestMappingConfig.json" Link="TestMappingConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="appsettings.json">
       <Generator></Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\Tests\TestData\PersonExport.csv" Link="PersonExport.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -27,6 +36,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Application\DataImport.Application.csproj" />
     <ProjectReference Include="..\Infrastructure\DataImport.Infrastructure.csproj" />
   </ItemGroup>
 

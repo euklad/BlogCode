@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "DataImport.Console": {
+      "commandName": "Project",
+      "commandLineArgs": "TestMappingConfig.json PersonExport.csv"
+    }
+  }
+}

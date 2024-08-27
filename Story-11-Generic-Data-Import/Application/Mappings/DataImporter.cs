@@ -27,7 +27,7 @@ public class DataImporter
 
         foreach (var filePath in fileList)
         {
-            var csv = CsvHelper.GetCsvFileLines(filePath);
+            var csv = FileHelper.GetCsvFileLines(filePath);
 
             // skip the 1st line with column definitions
             foreach (var line in csv.Skip(1))
