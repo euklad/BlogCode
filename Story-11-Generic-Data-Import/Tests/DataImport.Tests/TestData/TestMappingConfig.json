@@ -1,0 +1,54 @@
+﻿{
+  "FileMappings": {
+    "PersonExport.csv": [
+      {
+        "JsonPath": "$.Customer.ExternalId",
+        "Position": 0
+      },
+      {
+        "JsonPath": "$.Customer.FirstName",
+        "Position": 1
+      },
+      {
+        "JsonPath": "$.Customer.LastName",
+        "Position": 2
+      },
+      {
+        "JsonPath": "$.Customer.MiddleName",
+        "Position": 3
+      },
+      {
+        "JsonPath": "$.Customer.DateOfBirth",
+        "Position": 4
+      },
+      {
+        "JsonPath": "$.Customer.Mobile",
+        "Position": 7
+      },
+      {
+        "JsonPath": "$.Customer.Email",
+        "Position": 9
+      }
+    ],
+    "Product.csv": [
+      {
+        "JsonPath": "$.",
+        "Position": 0
+      },
+      {
+        "JsonPath": "$.",
+        "Position": 1
+      }
+    ],
+    "Purchase.csv": [
+      {
+        "JsonPath": "$.",
+        "Position": 0
+      },
+      {
+        "JsonPath": "$.",
+        "Position": 1
+      }
+    ]
+  }
+}

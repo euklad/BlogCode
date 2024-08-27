@@ -1,0 +1,4 @@
+﻿PersonId,GivenName,Surname,MidName,Dob,AccountId,Tier,MobilePhone,HomePhone,Email,CountryCode
+C00006,Gurry,Navil,,2001-12-17,10003864,1,0402288388,0299993333,gurry.navil@aol.com,UK
+C00008,Lisa,Navil,,2003-06-07,10003865,1,0402288499,0299992222,lisa.navil@aol.com,UK
+C00018,Martin,Martines,,1965-03-27,10003866,1,0402288788,0288882222,martin.martines@aol.com,US
