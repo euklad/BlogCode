@@ -11,6 +11,7 @@ namespace DataImport.Application.Mappings;
 public class DataImporter
 {
     private readonly IJsonPathModelNavigator _navigator;
+
     public DataImporter()
     {
         _navigator = new JsonPathModelNavigator(

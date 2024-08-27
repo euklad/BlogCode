@@ -17,7 +17,7 @@ public static class CsvHelper
             
         while (!reader.EndOfStream)
         {
-            result.Add(reader.ReadLine());
+            result.Add(reader.ReadLine()!);
         }
 
         return result;

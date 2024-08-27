@@ -3,20 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataImport.Application", "Application\DataImport.Application\DataImport.Application.csproj", "{BE6D9155-85E3-42C5-9D39-032F28EF0F8B}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataImport.Domain", "Domain\DataImport.Domain\DataImport.Domain.csproj", "{9FCB65A1-217F-4EFD-8C39-6C83DE7B9BF8}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataImport.Tests", "Tests\DataImport.Tests\DataImport.Tests.csproj", "{4157D534-73DE-46C8-8C08-4C5A90E2E285}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataImport.Infrastructure", "Infrastructure\DataImport.Infrastructure\DataImport.Infrastructure.csproj", "{A38ABFB9-7E1A-4615-B15B-A40F461BBEB7}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataImport.Console", "Console\DataImport.Console\DataImport.Console.csproj", "{DBE607CA-5940-4014-8CA6-B40BDA344E74}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BBF2352C-C987-4772-88C8-15D7895884E2}"
 	ProjectSection(SolutionItems) = preProject
 		readme.md = readme.md
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataImport.Domain", "Domain\DataImport.Domain.csproj", "{0DD7E791-08E6-4F7C-AC45-E1E077405BFF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataImport.Tests", "Tests\DataImport.Tests.csproj", "{663E8B7B-91C3-4B24-B5F1-8AA8B009319F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataImport.Infrastructure", "Infrastructure\DataImport.Infrastructure.csproj", "{5FEA6D3B-299E-457E-B278-10D36A320CAA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataImport.Application", "Application\DataImport.Application.csproj", "{7895590A-53AD-4EBC-A604-766D79BD3CDB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataImport.Console", "Console\DataImport.Console.csproj", "{6A04B9AB-2610-422F-BB1F-AAB5F60668BA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,26 +24,26 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BE6D9155-85E3-42C5-9D39-032F28EF0F8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BE6D9155-85E3-42C5-9D39-032F28EF0F8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BE6D9155-85E3-42C5-9D39-032F28EF0F8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BE6D9155-85E3-42C5-9D39-032F28EF0F8B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9FCB65A1-217F-4EFD-8C39-6C83DE7B9BF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9FCB65A1-217F-4EFD-8C39-6C83DE7B9BF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9FCB65A1-217F-4EFD-8C39-6C83DE7B9BF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9FCB65A1-217F-4EFD-8C39-6C83DE7B9BF8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4157D534-73DE-46C8-8C08-4C5A90E2E285}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4157D534-73DE-46C8-8C08-4C5A90E2E285}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4157D534-73DE-46C8-8C08-4C5A90E2E285}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4157D534-73DE-46C8-8C08-4C5A90E2E285}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A38ABFB9-7E1A-4615-B15B-A40F461BBEB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A38ABFB9-7E1A-4615-B15B-A40F461BBEB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A38ABFB9-7E1A-4615-B15B-A40F461BBEB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A38ABFB9-7E1A-4615-B15B-A40F461BBEB7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DBE607CA-5940-4014-8CA6-B40BDA344E74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DBE607CA-5940-4014-8CA6-B40BDA344E74}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DBE607CA-5940-4014-8CA6-B40BDA344E74}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DBE607CA-5940-4014-8CA6-B40BDA344E74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DD7E791-08E6-4F7C-AC45-E1E077405BFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DD7E791-08E6-4F7C-AC45-E1E077405BFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DD7E791-08E6-4F7C-AC45-E1E077405BFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DD7E791-08E6-4F7C-AC45-E1E077405BFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{663E8B7B-91C3-4B24-B5F1-8AA8B009319F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{663E8B7B-91C3-4B24-B5F1-8AA8B009319F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{663E8B7B-91C3-4B24-B5F1-8AA8B009319F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{663E8B7B-91C3-4B24-B5F1-8AA8B009319F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FEA6D3B-299E-457E-B278-10D36A320CAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FEA6D3B-299E-457E-B278-10D36A320CAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FEA6D3B-299E-457E-B278-10D36A320CAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FEA6D3B-299E-457E-B278-10D36A320CAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7895590A-53AD-4EBC-A604-766D79BD3CDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7895590A-53AD-4EBC-A604-766D79BD3CDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7895590A-53AD-4EBC-A604-766D79BD3CDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7895590A-53AD-4EBC-A604-766D79BD3CDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A04B9AB-2610-422F-BB1F-AAB5F60668BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A04B9AB-2610-422F-BB1F-AAB5F60668BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A04B9AB-2610-422F-BB1F-AAB5F60668BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A04B9AB-2610-422F-BB1F-AAB5F60668BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -11,7 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Domain\DataImport.Domain\DataImport.Domain.csproj" />
+    <ProjectReference Include="..\Domain\DataImport.Domain.csproj" />
+    <ProjectReference Include="..\Infrastructure\DataImport.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

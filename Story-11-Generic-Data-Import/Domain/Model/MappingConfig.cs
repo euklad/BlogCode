@@ -12,6 +12,6 @@ public class MappingConfig
 
 public class FileMapping
 {
-    public string JsonPath { get; set; }
+    public string JsonPath { get; set; } = null!;
     public int Position { get; set; }
 }

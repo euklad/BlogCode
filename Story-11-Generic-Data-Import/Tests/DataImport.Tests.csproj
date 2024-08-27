@@ -29,8 +29,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Application\DataImport.Application\DataImport.Application.csproj" />
-    <ProjectReference Include="..\..\Domain\DataImport.Domain\DataImport.Domain.csproj" />
+    <ProjectReference Include="..\Application\DataImport.Application.csproj" />
+    <ProjectReference Include="..\Domain\DataImport.Domain.csproj" />
+    <ProjectReference Include="..\Infrastructure\DataImport.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
