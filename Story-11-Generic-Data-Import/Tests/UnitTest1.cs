@@ -7,6 +7,16 @@ namespace DataImport.Tests;
 
 public class UnitTest1
 {
+    public static MappingConfig LoadConfig(string fileName)
+    {
+        using Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(fileName)!;
+        using StreamReader reader = new StreamReader(stream);
+
+        var json = reader.ReadToEnd();
+        var config = JsonSerializer.Deserialize<MappingConfig>(json)!;
+        return config;
+    }
+
     [Fact]
     public void DataImporter_Should_ReadCustomer()
     {
@@ -33,13 +43,4 @@ public class UnitTest1
         var json = JsonSerializer.Serialize(mc, new JsonSerializerOptions { WriteIndented = true });
     }
 
-    public static MappingConfig LoadConfig(string fileName)
-    {
-        using Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(fileName)!;
-        using StreamReader reader = new StreamReader(stream);
-
-        var json = reader.ReadToEnd();
-        var config = JsonSerializer.Deserialize<MappingConfig>(json)!;
-        return config;
-    }
 }

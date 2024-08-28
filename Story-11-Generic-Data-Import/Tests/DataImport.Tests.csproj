@@ -10,11 +10,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="TestData\OrderExport.csv" />
     <None Remove="TestData\PersonExport.csv" />
+    <None Remove="TestData\SubscriptionExport.csv" />
     <None Remove="TestData\TestMappingConfig.json" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="TestData\OrderExport.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\SubscriptionExport.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="TestData\PersonExport.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

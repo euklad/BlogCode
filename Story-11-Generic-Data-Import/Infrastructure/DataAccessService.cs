@@ -42,7 +42,7 @@ public class DataAccessService : IDataAccessService
         foreach (var item in snapshot.Purchases)
         {
             item.CustomerId = customerDict[item.CustomerExternalId!];
-            item.ProductId = customerDict[item.ProductExternalId!];
+            item.ProductId = productDict[item.ProductExternalId!];
             _db.Add(item);
         }
 

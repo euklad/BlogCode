@@ -30,24 +30,56 @@
         "Position": 9
       }
     ],
-    "Product.csv": [
+    "SubscriptionExport.csv": [
       {
-        "JsonPath": "$.",
+        "JsonPath": "$.Product.ExternalId",
         "Position": 0
       },
       {
-        "JsonPath": "$.",
+        "JsonPath": "$.Product.ProductCode",
         "Position": 1
+      },
+      {
+        "JsonPath": "$.Product.ProductName",
+        "Position": 4
+      },
+      {
+        "JsonPath": "$.Product.Description",
+        "Position": 5
+      },
+      {
+        "JsonPath": "$.Product.ProductTypeName",
+        "Position": 7
       }
     ],
-    "Purchase.csv": [
+    "OrderExport.csv": [
       {
-        "JsonPath": "$.",
+        "JsonPath": "$.Purchase.ExternalId",
         "Position": 0
       },
       {
-        "JsonPath": "$.",
+        "JsonPath": "$.Purchase.CustomerExternalId",
         "Position": 1
+      },
+      {
+        "JsonPath": "$.Purchase.ProductExternalId",
+        "Position": 2
+      },
+      {
+        "JsonPath": "$.Purchase.OrderDate",
+        "Position": 3
+      },
+      {
+        "JsonPath": "$.Purchase.PaymentDate",
+        "Position": 3
+      },
+      {
+        "JsonPath": "$.Purchase.PeriodStartDate",
+        "Position": 3
+      },
+      {
+        "JsonPath": "$.Purchase.TotalAmount",
+        "Position": 4
       }
     ]
   }
