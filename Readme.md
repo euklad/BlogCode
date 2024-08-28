@@ -24,3 +24,6 @@ https://www.codeproject.com/Articles/5284591/Adding-type-to-System-Text-Json-Ser
 
 Story6 blog post:
 https://www.codeproject.com/Articles/5291832/Microsoft-Blazor-Rapid-Development-with-SQL-Forms
+
+Story 11
+https://www.codeproject.com/Articles/5387406/JsonPathToModel-Generic-Data-Importer
