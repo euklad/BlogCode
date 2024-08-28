@@ -24,7 +24,9 @@ namespace DataImport.Infrastructure.Migrations
                     MiddleName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DateOfBirth = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Mobile = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Source = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Created = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -41,7 +43,9 @@ namespace DataImport.Infrastructure.Migrations
                     ProductCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ProductName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ProductTypeName = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    ProductTypeName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Source = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Created = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -55,11 +59,15 @@ namespace DataImport.Infrastructure.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ExternalId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CustomerExternalId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ProductExternalId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     TotalAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
                     PeriodStartDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     PeriodEndDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     OrderDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     PaymentDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    Source = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Created = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CustomerId = table.Column<int>(type: "int", nullable: false),
                     ProductId = table.Column<int>(type: "int", nullable: false)
                 },

@@ -28,6 +28,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="..\Tests\TestData\OrderExport.csv" Link="OrderExport.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Tests\TestData\SubscriptionExport.csv" Link="SubscriptionExport.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.7">
       <PrivateAssets>all</PrivateAssets>

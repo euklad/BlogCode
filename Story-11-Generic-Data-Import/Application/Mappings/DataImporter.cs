@@ -1,11 +1,6 @@
 ﻿using DataImport.Domain.Model;
 using JsonPathToModel;
 using DataImport.Application.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataImport.Application.Mappings;
 public class DataImporter
@@ -55,14 +50,17 @@ public class DataImporter
         // add to model only those entities that have at least ExternalId updated  
         if (target.Customer.ExternalId != null)
         {
+            target.Customer.Source = fileName;
             model.Customers.Add(target.Customer);
         }
         if (target.Product.ExternalId != null)
         {
+            target.Product.Source = fileName;
             model.Products.Add(target.Product);
         }
         if (target.Purchase.ExternalId != null)
         {
+            target.Purchase.Source = fileName;
             model.Purchases.Add(target.Purchase);
         }
     }

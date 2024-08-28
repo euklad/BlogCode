@@ -1,0 +1,4 @@
+﻿SubscriptionId,Code,AvailabelFrom,Period,Product,Details,CountryCode,DisplaySection
+S01006,MVP01,2021-12-17,1Y,Antivirus McAfee,License,UK,Software
+S01018,MVC01,2022-06-01,3Y,WinRAR,License,UK,Software
+S00108,MVP07,2024-01-24,1Y,Azure,Subscription,US,Cloud
