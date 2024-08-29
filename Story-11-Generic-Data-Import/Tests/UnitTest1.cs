@@ -22,7 +22,10 @@ public class UnitTest1
     {
         var config = LoadConfig("DataImport.Tests.TestData.TestMappingConfig.json");
         List<string> fileList = ["./TestData/PersonExport.csv"];
-        var importer = new DataImporter();
+
+        var importer = new DataImporter(new JsonPathToModel.JsonPathModelNavigator(
+                new JsonPathToModel.NavigatorConfigOptions { OptimizeWithCodeEmitter = true }));
+
         var model = importer.ReadModelFromFiles(fileList, config);
 
         Assert.NotNull(model);

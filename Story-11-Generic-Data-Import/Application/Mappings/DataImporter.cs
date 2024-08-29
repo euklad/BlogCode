@@ -7,13 +7,9 @@ public class DataImporter
 {
     private readonly IJsonPathModelNavigator _navigator;
 
-    public DataImporter()
+    public DataImporter(IJsonPathModelNavigator navigator)
     {
-        _navigator = new JsonPathModelNavigator(
-            new NavigatorConfigOptions
-            {
-                OptimizeWithCodeEmitter = false
-            });
+        _navigator = navigator;
     }
 
     public DataSnapshotModel ReadModelFromFiles(List<string> fileList, MappingConfig config)

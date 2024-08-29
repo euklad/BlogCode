@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using DataImport.Application.Mappings;
 using DataImport.Application.Helpers;
+using JsonPathToModel;
 
 namespace DataImport.Console;
 
@@ -25,6 +26,9 @@ class Program
             {
                 services.AddDbContext<MyDbContext>(options => options.UseSqlServer(), contextLifetime: ServiceLifetime.Singleton);
                 services.AddSingleton<IDataAccessService, DataAccessService>();
+                services.AddSingleton<DataImporter>();
+
+                services.AddJsonPathToModel(options => options.OptimizeWithCodeEmitter = true);
             })
             .Build();
 
@@ -41,7 +45,7 @@ class Program
         }
 
         // read snapshot
-        var dataImporter = new DataImporter();
+        var dataImporter = app.Services.GetService<DataImporter>()!;
         var shapshot = dataImporter.ReadModelFromFiles(csvFiles, config);
 
         // save snapshot to db
