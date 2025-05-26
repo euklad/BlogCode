@@ -36,6 +36,28 @@ namespace DemoCatleProxy.RestartableFlow.Tests
             _dataService = dataService;
         }
 
+        //public void ExecuteFlow(DemoFlow1 flow)
+        //{
+        //    flow.LoadData();
+
+        //    flow.CheckIfApproved();
+
+        //    flow.AddDigitalSignature();
+
+        //    flow.SubmitData();
+        //}
+
+        public void ExecuteFlow()
+        {
+            LoadData();
+
+            CheckIfApproved();
+
+            AddDigitalSignature();
+
+            SubmitData();
+        }
+
         public override void Execute()
         {
             LoadData();

@@ -33,8 +33,9 @@ namespace DemoCatleProxy.RestartableFlow
 
         private FlowData ProcessFlow(IFlow flow)
         {
-            var options = new ProxyGenerationOptions(new FreezableProxyGenerationHook(flow));
+            var options = new ProxyGenerationOptions(new FreezableProxyGenerationHook(flow)) {  };
             var flowProxy = _proxyGenerator.CreateClassProxyWithTarget(flow.GetType(), flow, options, new IInterceptor[] { this }) as IFlow;
+            //var flowProxy = _proxyGenerator.CreateClassProxy(flow.GetType(), flow, options, new IInterceptor[] { this }) as IFlow;
             _flow = flow;
 
             try
@@ -45,7 +46,10 @@ namespace DemoCatleProxy.RestartableFlow
                 _flowData.LastException = null;
 
                 // run flow
-                flowProxy.Execute();
+                //flowProxy.Execute();
+                var exec = flow.GetType().GetMethod("ExecuteFlow");
+                //exec.Invoke(flowProxy, new object[] { flowProxy });
+                exec.Invoke(flowProxy, null);
                 _flowData.IsFinished = true;
             }
             catch (FlowStopException e)
